@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akornor Demo</title>
+    <link rel="stylesheet" href="akornor.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Akornor Restaurant</h1>
+        <p>Convenient Dining Experience at Ashesi University</p>
+    </header>
+    
+    <nav>
+        <a href="akornorhome.html">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">Order</a>
+        <a href="#">Reservations</a>
+    </nav>
+    
+    <div class="container">
+        <!-- Menu Section -->
+        <section class="menu-section">
+            <h2>Today's Menu</h2>
+            <div class="menu-item">
+                <span>Jollof Rice with Chicken</span>
+                <span>GHS 30.00</span>
+            </div>
+            <div class="menu-item">
+                <span>Cappucino</span>
+                <span>GHS 20.00</span>
+            </div>
+            <div class="menu-item">
+                <span>Fufu with Light Soup</span>
+                <span>GHS 30.00</span>
+            </div>
+            <div class="menu-item">
+                <span>Plantain and Beans</span>
+                <span>GHS 28.00</span>
+            </div>
+        </section>
+    
+        <!-- Order Section -->
+        <section class="order-section">
+            <h2>Place Your Order</h2>
+            <form class="order-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                
+                <label for="item">Select Menu Item:</label>
+                <select id="item" name="item" required>
+                    <option value="jollof">Jollof Rice with Chicken</option>
+                    <option value="cappucino">Cappucino</option>
+                    <option value="fufu">Fufu with Light Soup</option>
+                    <option value="redred">Plantain and Beans</option>
+                </select>
+                
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+                
+                <label for="contact">Contact Number:</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your contact number" required>
+                
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+    </div>
+    
+    <script>
+        document.querySelector('.order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let name = document.getElementById('name').value;
+            let item = document.getElementById('item').value;
+            let quantity = document.getElementById('quantity').value;
+            let contact = document.getElementById('contact').value;
+    
+            alert(`Thank you, ${name}! Your order for ${quantity} of ${item} has been placed. We will contact you at ${contact} for confirmation.`);
+        });
+    </script>
+</body>
+</html>
