@@ -2,7 +2,7 @@ https://www.canva.com/design/DAGTqn_zT4k/m_qjnrnzXJ7QeIWbZrm6QA/edit?utm_content
 
 This is a link to our First Presentation Slides 
 
-http://169.239.251.102:3341/~victor.adounvo/akornor.html
+http://169.239.251.102:3341/~papa.badu/akornorhome.html
 This a link to our website 
 
 
