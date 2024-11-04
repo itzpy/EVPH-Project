@@ -5,6 +5,8 @@ This is a link to our First Presentation Slides
 http://169.239.251.102:3341/~papa.badu/akornorhome.html
 This a link to our website 
 
+http://169.239.251.102:3341/phpmyadmin/index.php?route=/&route=%2F&db=webtech_fall2024_papa_badu
+This is the link to our Database 
 
 OUR PLANNED IMPLEMENTATIONS
 Architecture Overview:
