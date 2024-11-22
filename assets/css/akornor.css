@@ -8,6 +8,7 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    background: url();
 
 }
 
@@ -147,11 +148,12 @@ nav a {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: none;
 }
 .form-container h2 {
     margin-bottom: 20px;
     color: #722F37;
+    text-align: center;
 }
 
 /* Input Fields and Icon Styling */
