@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="Author" content="Papa Yaw Badu" />
     <title>Register - Recipe Sharing Platform</title>
-    <link rel="stylesheet" href="./assets/css/akornor.css" />
+    <link rel="stylesheet" href="../assets/css/akornor.css" />
   </head>
   <body>
     <div class="form-container">
@@ -66,9 +66,9 @@
         <button type="submit">Sign Up</button>
       </form>
       <p>
-        Do you Already have an account? <a href="akornorlogin.html">Login</a>
+        Do you Already have an account? <a href="akornorlogin.php">Login</a>
       </p>
-      <p><a href="../akornorhome.html">Back to Home</a></p>
+      <p><a href="../akornorhome.php">Back to Home</a></p>
     </div>
     <script
       type="module"
