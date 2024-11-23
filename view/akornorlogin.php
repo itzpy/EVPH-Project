@@ -42,9 +42,9 @@
       </form>
 
       <p>
-        Ei! Don't have an account? <a href="akornorsignup.html">Register </a>
+        Ei! Don't have an account? <a href="akornorsignup.php">Register </a>
       </p>
-      <p><a href="../akornorhome.html">Back to Home</a></p>
+      <p><a href="../akornorhome.php">Back to Home</a></p>
     </div>
 
     <script
