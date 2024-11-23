@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="Author" content="Papa Yaw Badu" />
     <title>Register - Recipe Sharing Platform</title>
-    <link rel="stylesheet" href="/assets/css/akornor.css" />
+    <link rel="stylesheet" href="./assets/css/akornor.css" />
   </head>
   <body>
     <div class="form-container">

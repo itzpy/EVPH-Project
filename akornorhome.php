@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,8 +14,8 @@
     <div class="header">
       <div class="logo">Akornor Hub</div>
       <div class="nav-buttons">
-        <a href="/view/akornorlogin.php">Login</a>
-        <a href="/view/akornorsignup.php">Sign Up</a>
+        <a href="/view/akornorlogin.html">Login</a>
+        <a href="/view/akornorsignup.html">Sign Up</a>
         <a href="#">About us</a>
         <a href="#">Invest with us</a>
       </div>
@@ -29,7 +31,7 @@
       </p>
       <p>Place your Orders and check out the amazing food on our menu today</p>
       <p>Click on the preview to get a taste of our webApp services</p>
-      <a href="/view/Akornor_clone.html" class="btn">Preview</a>
+      <a href="./view/Akornor_clone.html" class="btn">Preview</a>
     </div>
   </body>
 </html>
