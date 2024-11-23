@@ -119,6 +119,7 @@ CREATE TABLE `users` (
   `user_id` int(8) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
+  `student_id` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('admin','customer') DEFAULT 'customer',

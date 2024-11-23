@@ -14,17 +14,18 @@ $response = [
     'success' => false,
     'errors' => []
 ];
+$data = json_decode(file_get_contents('php://input'), true);
 
 // Check if form is submitted via POST
 if (isset($_POST)) {
     // Sanitize and validate inputs
     // Change these to match the form input names exactly
-    $first_name = mysqli_real_escape_string($conn, trim($_POST['first-name']));
-    $last_name = mysqli_real_escape_string($conn, trim($_POST['last-name']));
-    $email = mysqli_real_escape_string($conn, trim($_POST['email']));
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm-password'];
-
+    $first_name = $data['first-name'];
+    $last_name = $data['last-name'];
+    $student_id = $data['student-id'];
+    $email = $data['email'];
+    $password = $data['password'];
+    $confirm_password = $data['confirm-password'];
     // Debug: Print out received POST data
     error_log("Received POST data:");
     error_log(print_r($_POST, true));
@@ -45,6 +46,13 @@ if (isset($_POST)) {
         $errors['last_name'] = "Last name is required";
     } elseif (strlen($last_name) < 2) {
         $errors['last_name'] = "Last name must be at least 2 characters";
+    }
+
+    //Validate Student ID
+    if (empty($student_id)) {
+        $errors['student_id'] = "Student ID is required";
+    } elseif (strlen($student_id) < 8) {
+        $errors['student_id'] = "Student ID must be at least 8 characters";
     }
 
     // Validate Email
@@ -90,6 +98,7 @@ if (isset($_POST)) {
     $insert_query = "INSERT INTO users (
         fname, 
         lname, 
+        student_id,
         email, 
         password, 
         role, 
@@ -97,6 +106,7 @@ if (isset($_POST)) {
     ) VALUES (
         '$first_name', 
         '$last_name', 
+        '$student_id',
         '$email', 
         '$hashed_password', 
         2, 

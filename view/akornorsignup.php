@@ -10,19 +10,27 @@
   <body>
     <div class="form-container">
       <h2>Register</h2>
-      <form id="signupForm">
-        <label for="username">Username</label>
-        <div class="input-icon">
-          <ion-icon name="person-outline"></ion-icon>
-          <input
-            type="email"
-            id="username"
-            name="username"
-            placeholder="Create a username"
-            required
-          />
-        </div>
-        <span id="usernameError" class="error"></span>
+      <form id="signupForm" method="POST">
+        <label for="first-name">First Name</label>
+          <div class="input-icon">
+              <ion-icon name="person-outline"></ion-icon>
+              <input type="text" id="first-name" name="first_name" placeholder="Enter your first name" required>
+          </div>
+          <span id="firstNameError" class="error"></span> 
+
+        <label for="last-name">Last Name</label>
+          <div class="input-icon">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" id="last-name" name="last_name" placeholder="Enter your last name" required>
+          </div>
+          <span id="lastNameError" class="error"></span> 
+
+        <label for="student-id">Student ID</label>
+          <div class="input-icon">
+            <ion-icon name="id-card-outline"></ion-icon>
+            <input type="number" id="student-id" name="student_id" placeholder="Enter your Student ID" required>
+          </div>
+          <span id="StudentIdError" class="error"></span> 
 
         <label for="email">Email</label>
         <div class="input-icon">
@@ -56,7 +64,7 @@
           <input
             type="password"
             id="confirm-password"
-            name="confirm-password"
+            name="confirm_password"
             placeholder="Confirm your password"
             required
           />
@@ -79,7 +87,7 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
-    <script src="/../assets/javascript/register.js"></script>
+    <!-- <script src="/../assets/javascript/register.js"></script> -->
     <script>
         document.getElementById("signupForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission
@@ -87,6 +95,7 @@
             // Get input values
             const firstName = document.getElementById("first-name").value.trim();
             const lastName = document.getElementById("last-name").value.trim();
+            const studentId = document.getElementById("student-id").value.trim();
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value;
             const confirmPassword = document.getElementById("confirm-password").value;
@@ -94,6 +103,7 @@
             // Get error message elements
             const firstNameError = document.getElementById("firstNameError");
             const lastNameError = document.getElementById("lastNameError");
+            const StudentIdError = document.getElementById("StudentIdError");
             const emailError = document.getElementById("emailError");
             const passwordError = document.getElementById("passwordError");
             const confirmPasswordError = document.getElementById("confirmPasswordError");
@@ -101,6 +111,7 @@
             // Clear previous error messages
             firstNameError.textContent = "";
             lastNameError.textContent = "";
+            StudentIdError.textContent = "";
             emailError.textContent = "";
             passwordError.textContent = "";
             confirmPasswordError.textContent = "";
@@ -117,6 +128,16 @@
             if (lastName === "") {
                 lastNameError.textContent = "Last name cannot be empty.";
                 valid = false;
+            }
+
+            //Student ID validation
+            const studentIdPattern = /^\d{8}$/;
+            if (studentId === "") {
+              StudentIdError.textContent = "Student ID cannot be empty.";
+              valid = false;
+            } else if (!studentIdPattern.test(studentId)) {
+              StudentIdError.textContent = "Please enter a valid 8-digit Student ID.";
+              valid = false;
             }
 
             // Email validation
@@ -142,16 +163,25 @@
                 valid = false;
             }
 
-            
+            // $data = json_decode(file_get_contents('php://input'), true);
+
             // If the form is valid, proceed
             if (valid) {
-                // Create a FormData object to send data
+                // // Create a FormData object to send data
                 const formData = new FormData();
-                formData.append("first-name", firstName);
-                formData.append("last-name", lastName);
+                formData.append("first_name", firstName);
+                formData.append("last_name", lastName);
+                formData.append("student_id", studentId);
                 formData.append("email", email);
                 formData.append("password", password);
-                formData.append("confirm-password", confirmPassword);
+                formData.append("confirm_password", confirmPassword);
+
+                // $first_name = $data['first-name'];
+                // $last_name = $data['last-name'];
+                // $student_id = $data['student-id'];
+                // $email = $data['email'];
+                // $password = $data['password'];
+                // $confirm_password = $data['confirm-password'];
 
                 // Send the data to the server
                 fetch("../actions/register_user.php", {

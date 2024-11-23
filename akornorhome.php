@@ -31,7 +31,7 @@
       </p>
       <p>Place your Orders and check out the amazing food on our menu today</p>
       <p>Click on the preview to get a taste of our webApp services</p>
-      <a href="./view/Akornor_clone.php" class="btn">Preview</a>
+      <a href="./view/akornorlogin.php" class="btn">Preview</a>
     </div>
   </body>
 </html>

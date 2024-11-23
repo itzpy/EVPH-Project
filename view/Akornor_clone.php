@@ -73,11 +73,11 @@
     </header>
 
     <nav>
-      <a href="akornorhome.html">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">Order</a>
-      <a href="#">Reservations</a>
-      <a href="Review.html">Leave a review</a>
+      <a href="../akornorhome.php">Home</a>
+      <a href="menu.php">Menu</a>
+      <a href="order.php">Order</a>
+      <a href="reservation.php">Reservations</a>
+      <a href="Review.php">Leave a review</a>
     </nav>
 
     <div class="container">
@@ -85,12 +85,12 @@
       <section class="menu-section">
         <h2>Today's Menu</h2>
         <?php
-          $conn = new mysqli("localhost", "root", "", "akornor");
+          $conn = new mysqli("localhost", "root", "", "restaurant_db");
           if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           }
 
-          $sql = "SELECT * FROM menu";
+          $sql = "SELECT * FROM menu_items";
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) {
