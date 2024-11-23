@@ -11,6 +11,12 @@
     <title>Akornor Platform</title>
   </head>
   <body>
+  <div class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="#" class="link active">About Us</a></li>
+            <li><a href="#" class="link">Contact Us</a></li>
+          </ul>
+        </div>
     <div class="header">
       <div class="logo">Akornor Hub</div>
       <div class="nav-buttons">
