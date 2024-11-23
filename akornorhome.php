@@ -14,8 +14,8 @@
     <div class="header">
       <div class="logo">Akornor Hub</div>
       <div class="nav-buttons">
-        <a href="/view/akornorlogin.html">Login</a>
-        <a href="/view/akornorsignup.html">Sign Up</a>
+        <a href="./view/akornorlogin.php">Login</a>
+        <a href="./view/akornorsignup.php">Sign Up</a>
         <a href="#">About us</a>
         <a href="#">Invest with us</a>
       </div>
