@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 // Database connection
-require_once '../db/database.php';
+require_once '../db/db.php';
 
 // Response array
 $response = [
@@ -94,7 +94,6 @@ if (isset($_POST)) {
         password, 
         role, 
         created_at, 
-        updated_at
     ) VALUES (
         '$first_name', 
         '$last_name', 
