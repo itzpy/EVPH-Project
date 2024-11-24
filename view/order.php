@@ -12,22 +12,33 @@
     </style>
 </head>
 
-<body>
-    <?php include "../view/menu.php"; ?>
+< <?php include "../view/menu.php"; ?>
     <form action="../functions/place_order.php" method="post" class="animate__animated animate__fadeIn">
         <header>
             <h1>Order Form</h1>
             <p>Place your orders and check out the amazing food on our menu today</p>
         </header>
 
-        <label for="user_id">Student ID:</label>
-        <input type="text" id="user_id" name="user_id" required />
-
-        <label for="menu_item_id">Menu Item ID:</label>
-        <input type="text" id="menu_item_id" name="menu_item_id" required />
+        <label for="menu_item_id">Select Menu Item:</label>
+        <select id="menu_item_id" name="menu_item_id" required>
+            <?php
+            include "../db/db.php";
+            $result = $conn->query("SELECT item_id, name FROM menu_items WHERE availability = 1");
+            while ($row = $result->fetch_assoc()) {
+                echo "<option value='{$row['item_id']}'>{$row['name']}</option>";
+            }
+            ?>
+        </select>
 
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" min="1" required />
+
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+            <option value="online">Online</option>
+        </select>
 
         <button type="submit" class="animate__animated animate__pulse animate__infinite">Place Order</button>
     </form>
@@ -40,6 +51,6 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-</body>
+    </body>
 
 </html>
