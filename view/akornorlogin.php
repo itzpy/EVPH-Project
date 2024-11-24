@@ -1,129 +1,140 @@
+<?php
+session_start();
+include '../db/db.php';
+
+// Declare error variables
+$emailError = $passwordError = "";
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  // Prepare query to fetch user details from the database
+  $stmt = $conn->prepare("SELECT user_id, password, role FROM users WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  // Check if the user exists
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $user_id = $row["user_id"];
+    $hashedPassword = $row["password"];
+    $role = $row['role'];
+
+    // Verify the password
+    if (password_verify($password, $hashedPassword)) {
+      // Set session variables
+      $_SESSION['user_id'] = $user_id;
+      $_SESSION['role'] = $role;
+      $_SESSION['email'] = $email;
+      $_SESSION['fname'] = $fname;
+      $_SESSION['lname'] = $lname;
+
+
+      // Redirect to the dashboard based on user role
+      if ($role === 'admin') {
+        header("Location: ../view/dashboard.php");
+
+      }
+
+      if ($role === "customer") {
+        header("Location: ../view/dashboard.php");
+        exit();
+      }
+
+    } else {
+      $passwordError = "Invalid password.";
+    }
+  } else {
+    $emailError = "No account found with that email.";
+  }
+  $stmt->close();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="eng">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Author" content="EVPH" />
+<html lang="en">
 
-    <title>Login - Akornor Platform</title>
-    <link rel="stylesheet" href="../assets/css/akornor.css" />
-  </head>
-  <body>
-    <div class="form-container">
-      <h2>Login</h2>
-      <form id="loginForm">
-        <label for="email">Email</label>
-        <div class="input-icon">
-          <ion-icon name="mail-outline"></ion-icon>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <span id="emailError" class="error"> </span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/login.css" />
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <title>Login | Akornor</title>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+  </style>
+</head>
 
-        <label for="password">Password</label>
-        <div class="input-icon">
-          <ion-icon name="lock-closed-outline"></ion-icon>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <span id="passwordError" class="error"></span>
+<body>
+  <div class="wrapper">
+    <nav class="nav animate-fade-right duration-1000 delay-200">
 
-        <button type="submit">Login</button>
-      </form>
+      <div class="nav-logo">
+        <p href="./akornorhome.php">Akornor</p>
+      </div>
+      <div class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="../akornorhome.php" class="link active">Home</a></li>
+          <li><a href="../akornorhome.php" class="link">About Us</a></li>
+          <li><a href="" class="link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="nav-button">
+        <a href="../view/akornorsignup.php">
+          <button class="btn">Sign Up</button>
+        </a>
+      </div>
+    </nav>
 
-      <p>
-        Ei! Don't have an account? <a href="akornorsignup.php">Register </a>
-      </p>
-      <p><a href="../akornorhome.php">Back to Home</a></p>
+    <!-- Login Form -->
+    <div class="form-box">
+      <div class="login-container animate-zoom-in duration-1000 delay-400 ">
+        <form action="" method="POST">
+          <div class="top">
+            <span>Don't have an account? <a href="../view/akornorsignup.php">Sign Up</a>
+            </span>
+            <header>Login</header>
+          </div>
+          <div class="input-box">
+            <input type="email" name="email" class="input-field" placeholder="Email" required />
+            <i class="bx bx-user"></i>
+            <div class="error-message">
+              <?php echo $emailError; ?>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="password" name="password" class="input-field" placeholder="Password" required />
+            <i class="bx bx-lock-alt"></i>
+            <div class="error-message">
+              <?php echo $passwordError; ?>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" value="Sign In" />
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="login-check" />
+              <label for="login-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Forgot password?</a></label>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+  <script src="../assets/javascript/loginValidation.js"></script>
+</body>
 
-    <script src="../assets/javascript/login.js"></script>
-    <script>
-      document.getElementById("loginForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Get input values
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
-
-        // Get error message elements
-        const emailError = document.getElementById("emailError");
-        const passwordError = document.getElementById("passwordError");
-
-        // Clear previous error messages
-        emailError.textContent = "";
-        passwordError.textContent = "";
-
-        let valid = true;
-
-        // Email validation
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (email === "") {
-            emailError.textContent = "Email cannot be empty.";
-            valid = false;
-        } else if (!emailPattern.test(email)) {
-            emailError.textContent = "Please enter a valid email address.";
-            valid = false;
-        }
-
-        // Password validation
-        if (password === "") {
-            passwordError.textContent = "Password cannot be empty.";
-            valid = false;
-        }
-
-        // If the form is valid, proceed
-        if (valid) {
-            // Create a FormData object to send data
-            const formData = new FormData();
-            formData.append("email", email);
-            formData.append("password", password);
-
-            // Send the data to the server
-            fetch("../actions/login_user.php", {
-                method: "POST",
-                body: formData,
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                if (data.success) {
-                    // Login successful
-                    alert("Login successful! Redirecting to dashboard...");
-                    window.location.href = "./admin/dashboard.php"; // Redirect to dashboard
-
-                } else {
-                    // Display server-side validation errors
-                    if (data.errors && data.errors.general) {
-                        alert(data.errors.general); // Show general error message
-                    }
-                }
-            })
-            .catch((error) => {
-                console.log("Error:", error);
-                alert("An error occurred while processing your request. Please try again.");
-            });
-        }
-      });
-    </script>
-  </body>
 </html>

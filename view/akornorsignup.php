@@ -1,220 +1,154 @@
+<?php
+// Include database connection
+include '../db/db.php';
+
+$emailError = $passwordError = "";
+$registrationSuccess = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  try {
+    $fname = trim(htmlspecialchars($_POST['fname']));
+    $lname = trim(htmlspecialchars($_POST['lname']));
+    $email = trim(htmlspecialchars($_POST['email']));
+    $password = $_POST['password'];
+
+    if (empty($fname) || empty($lname) || empty($email) || empty($password)) {
+      throw new Exception("All fields are required");
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      throw new Exception("Invalid email format");
+    }
+
+    $stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+    if (!$stmt) {
+      throw new Exception("Database error: " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+      throw new Exception("User already registered with this email");
+    }
+    $stmt->close();
+
+    // Hash password
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    $role = 2;
+    $stmt = $conn->prepare("INSERT INTO users ( fname, lname,  email, password, role) VALUES (?, ?, ?, ?, ?)");
+    if (!$stmt) {
+      throw new Exception("Database error: " . $conn->error);
+    }
+
+    $stmt->bind_param("sssss", $fname, $lname, $email, $hashedPassword, $role);
+
+    if (!$stmt->execute()) {
+      throw new Exception("Registration failed: " . $stmt->error);
+    }
+
+    // Registration successful
+    $registrationSuccess = true;
+    header("Location: ../view/akornorlogin.php?registration=success");
+
+  } catch (Exception $e) {
+    $emailError = $e->getMessage();
+    error_log("Registration error: " . $e->getMessage());
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="eng">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
-    <meta name="Author" content="Papa Yaw Badu" />
-    <title>Register - Recipe Sharing Platform</title>
-    <link rel="stylesheet" href="../assets/css/akornor.css" />
-  </head>
-  <body>
-    <div class="form-container">
-      <h2>Register</h2>
-      <form id="signupForm" method="POST">
-        <label for="first-name">First Name</label>
-          <div class="input-icon">
-              <ion-icon name="person-outline"></ion-icon>
-              <input type="text" id="first-name" name="first_name" placeholder="Enter your first name" required>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="Author" content="Papa Yaw Badu" />
+  <title>Register - Recipe Sharing Platform</title>
+  <link rel="stylesheet" href="../assets/css/login.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <!-- Registration Form -->
+  <div class="wrapper">
+    <nav class="nav animate-fade-right duration-1000 delay-200">
+      <div class="nav-logo">
+        <p>Akornor</p>
+      </div>
+      <div class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="../akornorhome.php" class="link active">Home</a></li>
+          <li><a href="../akornorhome.php" class="link">About Us</a></li>
+          <li><a href="" class="link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="nav-button">
+        <a href="../akonorlogin.php">
+          <button class="btn white-btn" id="loginBtn">Log In</button>
+        </a>
+        <button class="btn" id="signupBtn">Sign Up</button>
+      </div>
+      <div class="nav-menu-btn">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+    <div class="form-box">
+      <div class="signup-container animate-zoom-in duration-1000 delay-400" id="signup">
+        <form id="signupForm" action="../view/akornorsignup.php" method="POST">
+          <div class="top">
+            <span>
+              Have an account?
+              <a href="../view/akornorlogin.php" onclick="login()">Login</a>
+            </span>
+            <header>Sign Up</header>
           </div>
-          <span id="firstNameError" class="error"></span> 
-
-        <label for="last-name">Last Name</label>
-          <div class="input-icon">
-            <ion-icon name="person-outline"></ion-icon>
-            <input type="text" id="last-name" name="last_name" placeholder="Enter your last name" required>
+          <div class="two-forms">
+            <div class="input-box">
+              <input type="text" id="firstname" class="input-field" name="fname" placeholder="Firstname" />
+              <i class="bx bx-user"></i>
+              <div id="firstnameError" class="error-message"></div>
+            </div>
+            <div class="input-box">
+              <input type="text" id="lastname" class="input-field" name="lname" placeholder="Lastname" />
+              <i class="bx bx-user"></i>
+              <div id="lastnameError" class="error-message"></div>
+            </div>
           </div>
-          <span id="lastNameError" class="error"></span> 
 
-        <label for="student-id">Student ID</label>
-          <div class="input-icon">
-            <ion-icon name="id-card-outline"></ion-icon>
-            <input type="number" id="student-id" name="student_id" placeholder="Enter your Student ID" required>
+          <div class="input-box">
+            <input type="email" id="email" class="input-field" name="email" placeholder="Email" />
+            <i class="bx bx-envelope"></i>
+            <div id="emailError" class="error-message"><?php echo $emailError; ?></div>
           </div>
-          <span id="StudentIdError" class="error"></span> 
-
-        <label for="email">Email</label>
-        <div class="input-icon">
-          <ion-icon name="mail-outline"></ion-icon>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <span id="emailError" class="error"></span>
-
-        <label for="password">Password</label>
-        <div class="input-icon">
-          <ion-icon name="lock-closed-outline"></ion-icon>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Create a password"
-            required
-          />
-        </div>
-        <span id="passwordError" class="error"></span>
-
-        <label for="confirm-password">Confirm Password</label>
-        <div class="input-icon">
-          <ion-icon name="lock-closed-outline"></ion-icon>
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirm_password"
-            placeholder="Confirm your password"
-            required
-          />
-        </div>
-        <span id="confirmPasswordError" class="error"></span>
-
-        <button type="submit">Sign Up</button>
+          <div class="input-box">
+            <input type="password" id="password" class="input-field" name="password" placeholder="Password" />
+            <i class="bx bx-lock-alt"></i>
+            <div id="passwordError" class="error-message"></div>
+          </div>
+          <div class="input-box">
+            <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" />
+            <i class="bx bx-lock-alt"></i>
+            <div id="confirmPasswordError" class="error-message"></div>
+          </div>
+          <div class="input-box">
+            <input type="submit" class="submit" value="Sign Up" />
+          </div>
+      </div>
       </form>
-      <p>
-        Do you Already have an account? <a href="akornorlogin.php">Login</a>
-      </p>
-      <p><a href="../akornorhome.php">Back to Home</a></p>
     </div>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+  </div>
+  </div>
 
-    <!-- <script src="/../assets/javascript/register.js"></script> -->
-    <script>
-        document.getElementById("signupForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-            // Get input values
-            const firstName = document.getElementById("first-name").value.trim();
-            const lastName = document.getElementById("last-name").value.trim();
-            const studentId = document.getElementById("student-id").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirm-password").value;
+  <!-- <script src="/../assets/javascript/register.js"></script> -->
+  <script src="../assets/javascript/signupValidation.js"></script>
 
-            // Get error message elements
-            const firstNameError = document.getElementById("firstNameError");
-            const lastNameError = document.getElementById("lastNameError");
-            const StudentIdError = document.getElementById("StudentIdError");
-            const emailError = document.getElementById("emailError");
-            const passwordError = document.getElementById("passwordError");
-            const confirmPasswordError = document.getElementById("confirmPasswordError");
+</body>
 
-            // Clear previous error messages
-            firstNameError.textContent = "";
-            lastNameError.textContent = "";
-            StudentIdError.textContent = "";
-            emailError.textContent = "";
-            passwordError.textContent = "";
-            confirmPasswordError.textContent = "";
-
-            let valid = true;
-
-            // First Name validation
-            if (firstName === "") {
-                firstNameError.textContent = "First name cannot be empty.";
-                valid = false;
-            }
-
-            // Last Name validation
-            if (lastName === "") {
-                lastNameError.textContent = "Last name cannot be empty.";
-                valid = false;
-            }
-
-            //Student ID validation
-            const studentIdPattern = /^\d{8}$/;
-            if (studentId === "") {
-              StudentIdError.textContent = "Student ID cannot be empty.";
-              valid = false;
-            } else if (!studentIdPattern.test(studentId)) {
-              StudentIdError.textContent = "Please enter a valid 8-digit Student ID.";
-              valid = false;
-            }
-
-            // Email validation
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (email === "") {
-                emailError.textContent = "Email cannot be empty.";
-                valid = false;
-            } else if (!emailPattern.test(email)) {
-                emailError.textContent = "Please enter a valid email address.";
-                valid = false;
-            }
-
-            // Password validation
-            const passwordPattern = /^(?=.*[A-Z])(?=.*\d{3,})(?=.*[!@#$%^&*]).{8,}$/;
-            if (!passwordPattern.test(password)) {
-                passwordError.textContent = "Password must contain at least 8 characters, 1 uppercase letter, 3 digits, and 1 special character.";
-                valid = false;
-            }
-
-            // Confirm Password validation
-            if (confirmPassword !== password) {
-                confirmPasswordError.textContent = "Passwords do not match.";
-                valid = false;
-            }
-
-            // $data = json_decode(file_get_contents('php://input'), true);
-
-            // If the form is valid, proceed
-            if (valid) {
-                // // Create a FormData object to send data
-                const formData = new FormData();
-                formData.append("first_name", firstName);
-                formData.append("last_name", lastName);
-                formData.append("student_id", studentId);
-                formData.append("email", email);
-                formData.append("password", password);
-                formData.append("confirm_password", confirmPassword);
-
-                // $first_name = $data['first-name'];
-                // $last_name = $data['last-name'];
-                // $student_id = $data['student-id'];
-                // $email = $data['email'];
-                // $password = $data['password'];
-                // $confirm_password = $data['confirm-password'];
-
-                // Send the data to the server
-                fetch("../actions/register_user.php", {
-                    method: "POST",
-                    body: formData,
-                })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                    if (data.success) {
-                        // Registration successful
-                        alert("Registration successful! Redirecting to login...");
-                        window.location.href = "./login.php"; // Redirect to login page
-
-                    } else {
-                        // Display server-side validation errors
-                        for (const [key, value] of Object.entries(data.errors)) {
-                            const errorElement = document.getElementById(
-                                `${key.replace("-", "")}Error`
-                            );
-                            if (errorElement) {
-                                errorElement.textContent = value;
-                            }
-                        }
-                    }
-                })
-                .catch((error) => {
-                    console.log("Error:", error);
-                    alert("An error occurred while processing your request. Please try again.");
-                });
-
-            }
-        });
-    </script>
-  </body>
 </html>
