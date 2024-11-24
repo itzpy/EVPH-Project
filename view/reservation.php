@@ -14,7 +14,7 @@
       <h1>Akornor Reservation</h1>
       <p>Reserve a table for your next meal</p>
     </header>
-    <form action="../actions/reservation.php" method="post">
+    <form action="../functions/make_reservation.php" method="post">
       <label for="user_id"><ion-icon name="person-outline"></ion-icon> User ID:</label>
       <input type="text" id="user_id" name="user_id" required />
 

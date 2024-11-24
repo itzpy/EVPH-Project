@@ -13,6 +13,10 @@ $role = $_SESSION['role'];
 
 
 if ($role === 'admin') {
+    // Fetch all users
+
+    $usersQuery = "SELECT * FROM users";
+    $usersResult = $conn->query($usersQuery);
     // Fetch admin data
     $menuQuery = "SELECT * FROM menu_items";
     $menuResult = $conn->query($menuQuery);

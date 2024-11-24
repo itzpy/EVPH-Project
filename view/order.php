@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    <?php include "../view/menu.php"; ?>
     <form action="../functions/place_order.php" method="post" class="animate__animated animate__fadeIn">
         <header>
             <h1>Order Form</h1>
@@ -37,6 +37,9 @@
             this.classList.add('clicked');
         });
     </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

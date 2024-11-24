@@ -7,13 +7,13 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../view/dashboard.php">
         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
         <span class="title">Dashboard</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../view/menu.php">
         <span class="icon"><ion-icon name="grid-outline"></ion-icon></span>
         <span class="title">Menu</span>
       </a>
@@ -37,7 +37,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../view/logout.php">
         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
         <span class="title">Sign Out</span>
       </a>
