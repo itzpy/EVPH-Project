@@ -17,7 +17,7 @@ body {
     background-attachment: fixed;
 }
 .dashboard-container {
-    background: rgba(20, 20, 20, 0.6);
+    background: none;
     min-height: 100vh;
 
 }

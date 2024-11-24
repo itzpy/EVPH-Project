@@ -171,7 +171,6 @@
   <script>
     document.getElementById("feedbackForm").addEventListener("submit", function (event) {
       event.preventDefault();
-
       this.submit();
     });
   </script>
