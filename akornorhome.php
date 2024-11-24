@@ -58,7 +58,7 @@
           <p>Click on the preview to get a taste of our webApp services</p>
 
           <div class="button-container">
-            <a href="../view/akornorlogin.php"><button class="btn" data-aos="fade-left" data-aos-duration="2000"
+            <a href="./view/akornorsignup.php"><button class="btn" data-aos="fade-left" data-aos-duration="2000"
                 data-aos-delay="00" data-aos-margin="">
                 Get Started
               </button></a>
