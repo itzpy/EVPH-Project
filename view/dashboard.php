@@ -14,21 +14,39 @@ $role = $_SESSION['role'];
 
 if ($role === 'admin') {
     // Fetch all users
-
     $usersQuery = "SELECT * FROM users";
-    $usersResult = $conn->query($usersQuery);
-    // Fetch admin data
+    $userResult = $conn->query($usersQuery);
+    if (!$userResult) {
+        die("Error fetching users: " . $conn->error);
+    }
+
+    // Fetch menu items
     $menuQuery = "SELECT * FROM menu_items";
     $menuResult = $conn->query($menuQuery);
+    if (!$menuResult) {
+        die("Error fetching menu items: " . $conn->error);
+    }
 
+    // Fetch orders
     $ordersQuery = "SELECT * FROM orders";
     $ordersResult = $conn->query($ordersQuery);
+    if (!$ordersResult) {
+        die("Error fetching orders: " . $conn->error);
+    }
 
+    // Fetch reservations
     $reservationsQuery = "SELECT * FROM reservations";
     $reservationsResult = $conn->query($reservationsQuery);
+    if (!$reservationsResult) {
+        die("Error fetching reservations: " . $conn->error);
+    }
 
+    // Fetch feedback
     $feedbackQuery = "SELECT * FROM feedback";
     $feedbackResult = $conn->query($feedbackQuery);
+    if (!$feedbackResult) {
+        die("Error fetching feedback: " . $conn->error);
+    }
 
     // Include admin dashboard template
     include "../view/admin_dashboard.php";
