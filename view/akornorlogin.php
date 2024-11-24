@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/login.css" />
   <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
-  <title>Login | Akornor</title>
+  <title>Login | Akornor Hub</title>
   <style>
     .error-message {
       color: red;
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="nav animate-fade-right duration-1000 delay-200">
 
       <div class="nav-logo">
-        <p href="./akornorhome.php">Akornor</p>
+        <p href="./akornorhome.php">Akornor Hub</p>
       </div>
       <div class="nav-menu" id="navMenu">
         <ul>
