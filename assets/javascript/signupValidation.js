@@ -16,7 +16,9 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
   const lastname = document.getElementById("lastname").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
-  const confirmPassword = document.getElementById("confirm-password").value.trim();
+  const confirmPassword = document
+    .getElementById("confirm-password")
+    .value.trim();
 
   // Email validation regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
