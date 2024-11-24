@@ -109,37 +109,20 @@
         </div>
       </section>
 
+      
       <!-- Place Reservation Section -->
       <section class="place-reservation-section">
         <div class="card">
-          <form id="reservationForm" action="../functions/make_reservation.php" method="POST">
-            <h2>Make a Reservation</h2>
-            <div>
-              <label for="reservation_time">Reservation Time:</label>
-              <input type="datetime-local" id="reservation_time" name="reservation_time" required>
-            </div>
-            <div>
-              <label for="number_of_people">Number of People:</label>
-              <input type="number" id="number_of_people" name="number_of_people" min="1" required>
-            </div>
-            <button type="submit">Submit</button>
-          </form>
+          <h2>Make a Reservation</h2>
+          <a href="reservation.php" class="button-link">Go to Reservation Page</a>
         </div>
       </section>
 
       <!-- Provide Feedback Section -->
       <section class="feedback-section">
-        <div class="card ">
-          <h2>Give Feedback</h2>
-          <form id="feedbackForm" action="../functions/submit_feedback.php" method="POST">
-            <label for="item_id">Item ID:</label>
-            <input type="number" id="item_id" name="item_id" required>
-            <label for="rating">Rating (1-5):</label>
-            <input type="number" id="rating" name="rating" min="1" max="5" required>
-            <label for="comments">Comments:</label>
-            <textarea id="comments" name="comments"></textarea>
-            <button type="submit">Submit</button>
-          </form>
+        <div class="card">
+          <h2>Would you like to provide Feedback?</h2>
+          <a href="review.php" class="button-link">Give Feedback</a>
         </div>
       </section>
     </div>
@@ -162,23 +145,6 @@
         window.location.href = "../functions/cancel_reservation.php?id=" + reservation_id;
       };
     }
-    function confirmPlaceReservation(reservation_id) {
-      if (confirm("Are you sure you want to place this reservation?")) {
-        window.location.href = "../functions/make_reservation.php?id=" + reservation_id;
-      };
-    }
-  </script>
-  <script>
-    document.getElementById("feedbackForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      this.submit();
-    });
-  </script>
-  <script>
-    document.getElementById("reservationForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      this.submit();
-    })
   </script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

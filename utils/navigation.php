@@ -37,7 +37,7 @@
       </a>
     </li>
     <li>
-      <a href="../view/logout.php">
+      <a href="../actions/logout.php">
         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
         <span class="title">Sign Out</span>
       </a>
