@@ -49,7 +49,7 @@ if ($role === 'admin') {
     }
 
     // Include admin dashboard template
-    include "../view/admin_dashboard.php";
+    include "./admin/admin_dashboard.php";
 
 } elseif ($role === 'customer') {
     $user_id = $_SESSION['user_id'];

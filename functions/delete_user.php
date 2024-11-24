@@ -1,4 +1,8 @@
 <?php
+session_start();
+require_once "../db/db.php";
+
+
 function deleteUser($user_id)
 {
     // Include database connection
@@ -33,6 +37,20 @@ function deleteUser($user_id)
             return "Error executing query: " . $stmt->error;
         }
     } else {
+        $conn->close();
+        return "Error preparing statement: " . $conn->error;
 
     }
+}
+
+if (isset($_POST['user_id'])) {
+    $result = deleteUser($_POST['user_id']);
+    $_SESSION['message'] = $result;
+    header('Location: ../view/admin/dashboard.php'); // Adjust this path to your admin page
+    exit();
+} else if (isset($_GET['user_id'])) {
+    $result = deleteUser($_GET['user_id']);
+    $_SESSION['message'] = $result;
+    header('Location: ../view/admin/dashboard.php'); // Adjust this path to your admin page
+    exit();
 }

@@ -11,8 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = trim(htmlspecialchars($_POST['lname']));
     $email = trim(htmlspecialchars($_POST['email']));
     $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm-password'];
 
-    if (empty($fname) || empty($lname) || empty($email) || empty($password)) {
+    if ($password !== $confirmPassword) {
+      throw new Exception("Passwords do not match");
+    }
+
+    if (empty($fname) || empty($lname) || empty($email) || empty($password) ) {
       throw new Exception("All fields are required");
     }
 
@@ -24,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$stmt) {
       throw new Exception("Database error: " . $conn->error);
     }
-
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -130,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="passwordError" class="error-message"></div>
           </div>
           <div class="input-box">
-            <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" required />
+            <input type="password" id="confirm-password" class="input-field" name="confirm-password" placeholder="Confirm Password" required />
             <i class="bx bx-lock-alt"></i>
             <div id="confirmPasswordError" class="error-message"></div>
           </div>
@@ -148,6 +152,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- <script src="/../assets/javascript/register.js"></script> -->
   <script src="../assets/javascript/signupValidation.js"></script>
+  
+
+
 
 </body>
 
