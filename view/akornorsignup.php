@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="passwordError" class="error-message"></div>
           </div>
           <div class="input-box">
-            <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" />
+            <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" required />
             <i class="bx bx-lock-alt"></i>
             <div id="confirmPasswordError" class="error-message"></div>
           </div>
