@@ -14,7 +14,7 @@
 
 <body>
 
-    <form action="../actions/order.php" method="post" class="animate__animated animate__fadeIn">
+    <form action="../functions/place_order.php" method="post" class="animate__animated animate__fadeIn">
         <header>
             <h1>Order Form</h1>
             <p>Place your orders and check out the amazing food on our menu today</p>
