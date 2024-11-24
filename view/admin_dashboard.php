@@ -37,6 +37,7 @@
                                     <td><?= htmlspecialchars($row['role']) ?></td>
                                     <td>
                                         <button onclick="confirmDeleteUser(<?= $row['user_id'] ?>)">Delete</button>
+                                        <button onclick="confirmUpdateUser(<?= $row['user_id'] ?>)">Update</button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -108,6 +109,7 @@
                                     <td><?= $row['created_at'] ?></td>
                                     <td>
                                         <button onclick="confirmOrderUpdate(<?= $row['order_id'] ?>)">Update Status</button>
+                                        <button onclick="confirmDeleteOrder(<?= $row['order_id'] ?>)">Delete</button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -142,6 +144,7 @@
                                     <td>
                                         <button onclick="confirmReservationUpdate(<?= $row['reservation_id'] ?>)">Update
                                             Status</button>
+                                        <button onclick="confirmDeleteReservation(<?= $row['reservation_id'] ?>)">
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -174,6 +177,10 @@
                                     <td><?= $row['rating'] ?></td>
                                     <td><?= htmlspecialchars($row['comments']) ?></td>
                                     <td><?= $row['created_at'] ?></td>
+                                    <td>
+                                        <button onclick="confirmFeedbackUpdate(<?= $row['feedback_id'] ?>)">Update</button>
+                                        <button onclick="confirmDeleteFeedback(<?= $row['feedback_id'] ?>)">Delete</button>
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -188,27 +195,44 @@
     <script>
         function confirmDelete(id) {
             if (confirm("Are you sure you want to delete this item?")) {
-                window.location.href = "../functions/delete_menu_item.php?id=" + id;
+                window.location.href = "../actions/delete.php?action=menu_item&item_id=" + id;
             }
         }
         function confirmUpdate(id) {
             if (confirm("Are you sure you want to update this item?")) {
-                window.location.href = "../functions/update_menu_item.php?id=" + id;
+                window.location.href = "../actions/update.php?action=menu_item&item_id=" + id;
             }
         }
         function confirmReservationUpdate(id) {
             if (confirm("Are you sure you want to update this reservation?")) {
-                window.location.href = "../functions/update_reservation_status.php?id=" + id;
+                window.location.href = "../actions/update.php?action=reservation&reservation_id=" + id;
             }
         }
         function confirmOrderUpdate(id) {
             if (confirm("Are you sure you want to update this order?")) {
-                window.location.href = "../functions/update_order_status.php?id=" + id;
+                window.location.href = "../actions/update.php?action=order&order_id=" + id;
             }
         }
         function confirmDeleteUser(id) {
             if (confirm("Are you sure you want to delete this user?")) {
-                window.location.href = "../functions/delete_user.php?id=" + id;
+                window.location.href = "../actions/delete.php?action=user&user_id=" + id;
+            }
+        }
+        function confirmDeleteReservation(id) {
+            if (confirm("Are you sure you want to delete this reservation?")) {
+                window.location.href = "../actions/delete.php?action=reservation&reservation_id=" + id;
+            }
+        }
+
+        function confirmDeleteFeedback(id) {
+            if (confirm("Are you sure you want to delete this feedback?")) {
+                window.location.href = "../actions/delete.php?action=feedback&feedback_id=" + id;
+            }
+        }
+
+        function confirmDeleteOrder(id) {
+            if (confirm("Are you sure you want to delete this order?")) {
+                window.location.href = "../actions/delete.php?action=order&order_id=" + id;
             }
         }
     </script>
