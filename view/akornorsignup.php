@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
   <meta name="Author" content="Papa Yaw Badu" />
-  <title>Register - Recipe Sharing Platform</title>
+  <title>Register - Akornor Hub</title>
   <link rel="stylesheet" href="../assets/css/login.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="wrapper">
     <nav class="nav animate-fade-right duration-1000 delay-200">
       <div class="nav-logo">
-        <p>Akornor</p>
+        <p>Akornor Hub</p>
       </div>
       <div class="nav-menu" id="navMenu">
         <ul>

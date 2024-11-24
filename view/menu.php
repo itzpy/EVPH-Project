@@ -1,30 +1,32 @@
 <?php
-include '../db/db.php';
+session_start();
+include "../db/db.php";
 
-function getMenuItems()
-{
-    global $conn;
-    $sql = "SELECT * FROM menu_items";
-    $result = $conn->query($sql);
-    $menuItems = [];
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $menuItems[] = $row;
-        }
-    }
-    return $menuItems;
+// Redirect if not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../view/akornorlogin.php");
+    exit();
 }
 
-// Display items on the Menu Page
-$menuResult = getMenuItems();
-foreach ($menuResult as $item) {
-    echo "<div class='menu-item'>";
-    echo "<h3>" . htmlspecialchars($item['name']) . "</h3>";
-    echo "<p>" . htmlspecialchars($item['description']) . "</p>";
-    echo "<p>Price: $" . htmlspecialchars($item['price']) . "</p>";
-    echo "<p>Category: " . htmlspecialchars($item['category']) . "</p>";
-    echo "</div>";
+// Identify the user's role
+$role = $_SESSION['role'];
+
+
+if ($role === 'admin') {
+    // Fetch admin data
+    $menuQuery = "SELECT * FROM menu_items";
+    $menuResult = $conn->query($menuQuery);
+
+} elseif ($role === 'customer') {
+    $user_id = $_SESSION['user_id'];
+
+    // Fetch customer data
+    $menuQuery = "SELECT * FROM menu_items WHERE availability = 1";
+    $menuResult = $conn->query($menuQuery);
+
+} else {
+    echo "Invalid role.";
+    exit();
 }
 ?>
 <!DOCTYPE html>

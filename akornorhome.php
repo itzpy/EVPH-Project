@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="../EVPH-Project/assets/css/style.css" />
-  <title>Akornor | Home</title>
+  <title>Akornor Hub | Home</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <nav>
       <div class="nav-container animate-zoom-in duration-1000">
         <div class="nav-logo">
-          <p>Akornor</p>
+          <p>Akornor Hub</p>
         </div>
         <div class="nav-menu" id="navMenu">
 
