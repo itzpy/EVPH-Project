@@ -6,6 +6,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
   document.getElementById("lastnameError").innerText = "";
   document.getElementById("emailError").innerText = "";
   document.getElementById("passwordError").innerText = "";
+  document.getElementById("confirmPasswordError").innerText = "";
 
   // Initialize valid to true
   let valid = true;
@@ -15,6 +16,7 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
   const lastname = document.getElementById("lastname").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
+  const confirmPassword = document.getElementById("confirm-password").value.trim();
 
   // Email validation regex
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -53,6 +55,17 @@ document.getElementById("signupForm").addEventListener("submit", function (e) {
   } else if (!passwordRegex.test(password)) {
     document.getElementById("passwordError").innerText =
       "Password must be at least 8 characters, include 1 uppercase letter, 3 digits, and 1 special character.";
+    valid = false;
+  }
+
+  // Validate confirm password
+  if (!confirmPassword) {
+    document.getElementById("confirmPasswordError").innerText =
+      "Confirm password is required.";
+    valid = false;
+  } else if (confirmPassword !== password) {
+    document.getElementById("confirmPasswordError").innerText =
+      "Passwords do not match.";
     valid = false;
   }
 

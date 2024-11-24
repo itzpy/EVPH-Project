@@ -13,6 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirm-password'];
 
+    if ($password !== $confirmPassword) {
+      throw new Exception("Passwords do not match");
+    }
+
     if (empty($fname) || empty($lname) || empty($email) || empty($password) ) {
       throw new Exception("All fields are required");
     }
@@ -130,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="passwordError" class="error-message"></div>
           </div>
           <div class="input-box">
-            <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" required />
+            <input type="password" id="confirm-password" class="input-field" name="confirm-password" placeholder="Confirm Password" required />
             <i class="bx bx-lock-alt"></i>
             <div id="confirmPasswordError" class="error-message"></div>
           </div>
