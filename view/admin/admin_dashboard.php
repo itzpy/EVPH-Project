@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
     <title>Admin Dashboard</title>
 </head>
 
@@ -184,31 +184,31 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="../assets/javascript/navigation.js"></script>
+    <script src="../../assets/javascript/navigation.js"></script>
     <script>
         function confirmDelete(id) {
             if (confirm("Are you sure you want to delete this item?")) {
-                window.location.href = "../../functions/delete_menu_item.php?id=" + id;
+                window.location.href = "../functions/delete_menu_item.php?id=" + id;
             }
         }
         function confirmUpdate(id) {
             if (confirm("Are you sure you want to update this item?")) {
-                window.location.href = "../../functions/update_menu_item.php?id=" + id;
+                window.location.href = "../functions/update_menu_item.php?id=" + id;
             }
         }
         function confirmReservationUpdate(id) {
             if (confirm("Are you sure you want to update this reservation?")) {
-                window.location.href = "../../functions/update_reservation_status.php?id=" + id;
+                window.location.href = "../functions/update_reservation_status.php?id=" + id;
             }
         }
         function confirmOrderUpdate(id) {
             if (confirm("Are you sure you want to update this order?")) {
-                window.location.href = "../../functions/update_order_status.php?id=" + id;
+                window.location.href = "../functions/update_order_status.php?id=" + id;
             }
         }
         function confirmDeleteUser(id) {
             if (confirm("Are you sure you want to delete this user?")) {
-                window.location.href = "../../functions/delete_user.php?id=" + id;
+                window.location.href = "../functions/delete_user.php?id=" + id;
             }
         }
     </script>

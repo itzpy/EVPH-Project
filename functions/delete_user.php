@@ -46,11 +46,11 @@ function deleteUser($user_id)
 if (isset($_POST['user_id'])) {
     $result = deleteUser($_POST['user_id']);
     $_SESSION['message'] = $result;
-    header('Location: ../admin/dashboard.php'); // Adjust this path to your admin page
+    header('Location: ../view/admin/dashboard.php'); // Adjust this path to your admin page
     exit();
 } else if (isset($_GET['user_id'])) {
     $result = deleteUser($_GET['user_id']);
     $_SESSION['message'] = $result;
-    header('Location: ../admin/dashboard.php'); // Adjust this path to your admin page
+    header('Location: ../view/admin/dashboard.php'); // Adjust this path to your admin page
     exit();
 }
