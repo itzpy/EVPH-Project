@@ -15,7 +15,7 @@ $new_status = $_POST['status'];
 $stmt = $conn->prepare("UPDATE reservations SET status = ? WHERE reservation_id = ?");
 $stmt->bind_param("si", $new_status, $reservation_id);
 if ($stmt->execute()) {
-    header("Location: admin_dashboard.php");
+    header("Location: ../view/admin/admin_dashboard.php");
 } else {
     echo "Failed to update reservation status.";
 }

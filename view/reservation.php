@@ -15,8 +15,7 @@
       <p>Reserve a table for your next meal</p>
     </header>
     <form action="../functions/make_reservation.php" method="post">
-      <label for="user_id"><ion-icon name="person-outline"></ion-icon> User ID:</label>
-      <input type="text" id="user_id" name="user_id" required />
+      <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
 
       <label for="date"><ion-icon name="calendar-outline"></ion-icon> Date:</label>
       <input type="date" id="date" name="date" required />
@@ -25,7 +24,7 @@
       <input type="time" id="time" name="time" required />
 
       <label for="num_people"><ion-icon name="people-outline"></ion-icon> Number of People:</label>
-      <input type="number" id="num_people" name="num_people" min="1" required />
+      <input type="number" id="number_of_people" name="number_of_people" min="1" required />
 
       <label for="table"><ion-icon name="restaurant-outline"></ion-icon> Table:</label>
       <select name="table" id="table" required>

@@ -1,3 +1,4 @@
+
 <div class="navigation">
   <ul>
     <li>
@@ -20,13 +21,13 @@
     </li>
     <li>
       <a href="../view/order.php">
-        <span class="icon"><ion-icon name="reorder-four-outline"></ion-icon></span>
+        <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
         <span class="title">Order</span>
       </a>
     </li>
     <li>
       <a href="../view/reservation.php">
-        <span class="icon"><ion-icon name="bookmark-outline"></ion-icon></span>
+        <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
         <span class="title">Reservation</span>
       </a>
     </li>

@@ -1,3 +1,7 @@
+<style>
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +16,12 @@
   <?php include "../utils/navigation.php"; ?>
   <div class="dashboard-container">
     <div class="main-content">
-      <h1>Welcome!</h1>
+      <h1>Welcome! <ion-icon name="happy-outline"></ion-icon></h1>
 
       <!-- Menu Section -->
       <section class="menu-section">
         <div class="card">
-          <h2>Menu</h2>
+          <h2>Menu <ion-icon name="restaurant-outline" class="animate__animated animate__bounce"></ion-icon></h2>
           <table border="1">
             <thead>
               <tr>
@@ -50,7 +54,7 @@
       <!-- My Orders Section -->
       <section class="my-orders-section">
         <div class="card">
-          <h2>My Orders</h2>
+          <h2>My Orders <ion-icon name="cart-outline" class="animate__animated animate__bounce"></ion-icon></h2>
           <table border="1">
             <thead>
               <tr>
@@ -81,7 +85,8 @@
       <!-- My Reservations Section -->
       <section class="my-reservations-section">
         <div class="card">
-          <h2>My Reservations</h2>
+          <h2>My Reservations <ion-icon name="calendar-outline" class="animate__animated animate__bounce"></ion-icon>
+          </h2>
           <table border="1">
             <thead>
               <tr>
@@ -109,20 +114,28 @@
         </div>
       </section>
 
-      
+
       <!-- Place Reservation Section -->
       <section class="place-reservation-section">
         <div class="card">
-          <h2>Make a Reservation</h2>
-          <a href="reservation.php" class="button-link">Go to Reservation Page</a>
+          <h2>Make a Reservation <ion-icon name="restaurant-outline"
+              class="animate__animated animate__bounce"></ion-icon></h2>
+          <p style="margin-bottom: 1.5em">Plan ahead and secure a table for your next visit. We can't wait to welcome
+            you back!</p>
+          <a href="reservation.php" class="button-link" style="display: block; width: fit-content; margin: 0 auto">Book
+            Now</a>
         </div>
       </section>
 
       <!-- Provide Feedback Section -->
       <section class="feedback-section">
         <div class="card">
-          <h2>Would you like to provide Feedback?</h2>
-          <a href="review.php" class="button-link">Give Feedback</a>
+          <h2>Help Us Improve <ion-icon name="chatbubble-ellipses-outline"
+              class="animate__animated animate__bounce"></ion-icon></h2>
+          <p style="margin-bottom: 1.5em">We value your opinion and would love to hear from you. Your feedback will help
+            us improve our customer experience.</p>
+          <a href="review.php" class="button-link" style="display: block; width: fit-content; margin: 0 auto">Take Our
+            Survey</a>
         </div>
       </section>
     </div>
@@ -148,6 +161,7 @@
   </script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
