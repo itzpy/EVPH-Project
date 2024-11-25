@@ -24,7 +24,7 @@ switch ($action) {
             $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
             $stmt->bind_param("i", $user_id);
             if ($stmt->execute()) {
-                header("Location: ../view/admin/admin_dashboard.php");
+                header("Location: ../view/dashboard.php");
                 exit();
             } else {
                 echo "Failed to delete user.";
