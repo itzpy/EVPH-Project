@@ -24,7 +24,8 @@ switch ($action) {
             $stmt = $conn->prepare("DELETE FROM users WHERE user_id = ?");
             $stmt->bind_param("i", $user_id);
             if ($stmt->execute()) {
-                echo "User deleted successfully.";
+                header("Location: ../view/admin/admin_dashboard.php");
+                exit();
             } else {
                 echo "Failed to delete user.";
             }
@@ -72,7 +73,8 @@ switch ($action) {
             $stmt = $conn->prepare("DELETE FROM reservations WHERE reservation_id = ?");
             $stmt->bind_param("i", $reservation_id);            
             if ($stmt->execute()) {
-                echo "Reservation deleted successfully.";
+                header("Location: ../view/admin/admin_dashboard.php");
+                exit();
             } else {
                 echo "Failed to delete reservation.";
             }
