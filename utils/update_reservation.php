@@ -19,26 +19,22 @@ session_start();
             Update Reservation
         </header>
 
-        <label for="fname">First
-            Name:</label>
-        <input type="text" id="fname" name="fname" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
 
-        <label for="lname">Last Name:</label>
-        <input type="text" id="lname" name="lname" required>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" max="20" required>
 
-        <label for="role" class="form-label">Role:</label>
-        <select id="ReviewType" name="role" required class="form-input">
-            <option value="admin">Admin</option>
-            <option value="customer">Customer</option>
-        </select>
+        <label for="notes">Special Requests:</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
 
-        <input type="hidden" id="user_id" name="user_id"
-            value="<?php echo htmlspecialchars($_GET['user_id'], ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="hidden" id="reservation_id" name="reservation_id" 
+            value="<?php echo htmlspecialchars($_GET['reservation_id'], ENT_QUOTES, 'UTF-8'); ?>">
 
-        <button type="submit">Update</button>
+        <button type="submit">Update Reservation</button>
     </form>
 
 </body>

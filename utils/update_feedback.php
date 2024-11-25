@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
-    <title>Update User</title>
+    <title>Update Feedback</title>
     <link rel="stylesheet" href="../assets/css/order.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -16,29 +16,33 @@ session_start();
 <body>
     <form action="../actions/update.php?action=feedback" method="post">
         <header>
-            Update User
+            Update Feedback
         </header>
 
-        <label for="fname">First
-            Name:</label>
-        <input type="text" id="fname" name="fname" required>
-
-        <label for="lname">Last Name:</label>
-        <input type="text" id="lname" name="lname" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="role" class="form-label">Role:</label>
-        <select id="ReviewType" name="role" required class="form-input">
-            <option value="admin">Admin</option>
-            <option value="customer">Customer</option>
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating" required class="form-input">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
         </select>
 
-        <input type="hidden" id="user_id" name="user_id"
-            value="<?php echo htmlspecialchars($_GET['user_id'], ENT_QUOTES, 'UTF-8'); ?>">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
 
-        <button type="submit">Update User</button>
+        <label for="ReviewType">Review Type:</label>
+        <select id="ReviewType" name="ReviewType" required class="form-input">
+            <option value="food">Food</option>
+            <option value="service">Service</option>
+            <option value="ambiance">Ambiance</option>
+            <option value="overall">Overall Experience</option>
+        </select>
+
+        <input type="hidden" id="feedback_id" name="feedback_id" 
+            value="<?php echo htmlspecialchars($_GET['feedback_id'], ENT_QUOTES, 'UTF-8'); ?>">
+
+        <button type="submit">Update Feedback</button>
     </form>
 
 </body>
