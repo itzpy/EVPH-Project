@@ -107,13 +107,13 @@ body{
     display: none;
 }
 .form-box{
-    position: fixed;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 512px;
     height: 600px;
-    overflow: hidden;
+    overflow:auto;
     z-index: 2;
 
 }

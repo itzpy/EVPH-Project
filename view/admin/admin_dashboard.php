@@ -203,6 +203,11 @@
                 window.location.href = "../actions/update.php?action=menu_item&item_id=" + id;
             }
         }
+        function confirmUpdateUser(id) {
+            if (confirm("Are you sure you want to update this user?")) {
+                window.location.href = "../utils/update_user.php?user_id=" + id;
+            }
+        }
         function confirmReservationUpdate(id) {
             if (confirm("Are you sure you want to update this reservation?")) {
                 window.location.href = "../actions/update.php?action=reservation&reservation_id=" + id;

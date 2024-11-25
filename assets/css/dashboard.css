@@ -244,18 +244,17 @@ table {
     border-collapse: collapse;
     margin-top: 20px; 
     border: 1px solid #ddd;
-    border-radius: 10px;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
 }
- thead {
+ thead, tbody{
     border-radius: 20px;
 }
 th, td {
     padding: 12px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 

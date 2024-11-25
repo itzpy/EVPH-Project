@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../db/db.php";
+// echo $_SESSION['user_id'];
 
 // Check if the user is logged in and authorized
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
@@ -19,21 +20,24 @@ $action = $_GET['action'];
 switch ($action) {
     case 'user':
         // Update user details
-        if (isset($_POST['user_id'], $_POST['fname'], $_POST['lname'], $_POST['email'])) {
+        //var_dump($_POST);
+        if (isset($_SESSION['user_id'], $_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['role'])) {
             $user_id = intval($_POST['user_id']);
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $email = $_POST['email'];
+            $role = $_POST['role'];
 
-            $stmt = $conn->prepare("UPDATE users SET fname = ?, lname = ?, email = ? WHERE user_id = ?");
-            $stmt->bind_param("sssi", $fname, $lname, $email, $user_id);
+
+            $stmt = $conn->prepare("UPDATE users SET fname = ?, lname = ?, email = ?, role = ? WHERE user_id = ?");
+            $stmt->bind_param("sssss", $fname, $lname, $email, $role, $user_id);
             if ($stmt->execute()) {
-                echo "User updated successfully.";
+                header("Location: ../view/dashboard.php");
             } else {
                 echo "Failed to update user.";
             }
         } else {
-            echo "Required data not provided.";
+            header('Location: ../view/dashboard.php');
         }
         break;
 
