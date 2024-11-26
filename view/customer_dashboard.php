@@ -130,7 +130,7 @@
       <!-- Provide Feedback Section -->
       <section class="feedback-section">
         <div class="card ">
-          <h2>Give Feedback</h2>
+          <h2>How was your experience?</h2>
           <form id="feedbackForm" action="../functions/submit_feedback.php" method="POST">
             <label for="item_id">Item ID:</label>
             <input type="number" id="item_id" name="item_id" required>
