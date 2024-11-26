@@ -21,18 +21,26 @@
 
     <div class="form-container">
         <h2 class="form-title">Feedback</h2>
-        <form id="FeedbackForm" class="form">
-            <label for="ReviewType" class="form-label">Review</label>
-            <select id="ReviewType" name="Review Type" required class="form-input">
-                <option value="CustomerService">Customer Service</option>
-                <option value="FoodQuality">Food and Drinks</option>
+        <form id="FeedbackForm" class="form" action="../functions/submit_feedback.php" method="post">
+            <label for="category" class="form-label">Review</label>
+            <select id="category" name="category" required class="form-input">
+                <option value="Customer Service">Customer Service</option>
+                <option value="Food Quality">Food and Drinks</option>
                 <option value="Pool table">Pool table</option>
             </select>
 
-            <label for="feedback" class="form-label">Feedback</label>
-            <textarea id="feedback" name="feedback" placeholder="Let us know what you think" required
+            <label for="comments" class="form-label">Feedback</label>
+            <textarea id="comments" name="comments" placeholder="Let us know what you think" required
                 class="form-input form-textarea"></textarea>
 
+            <label for="rating" class="form-label">Rating</label>
+            <select id="rating" name="rating" required class="form-input">
+                <option value="1">1 - Poor</option>
+                <option value="2">2 - Fair</option>
+                <option value="3">3 - Good</option>
+                <option value="4">4 - Very Good</option>
+                <option value="5">5 - Excellent</option>
+            </select>
             <button type="submit" class="form-button">
                 Submit
             </button>
@@ -47,20 +55,39 @@
     <p id="thankYouMessage" style="display: none; color: green; font-weight: bold;"></p>
 
     <script>
-        const form = document.getElementById("FeedbackForm");
-        const message = document.getElementById("thankYouMessage");
-        const reviewType = document.getElementById("ReviewType").value;
-        //handle submission
         form.addEventListener("submit", function (event) {
-            event.preventDefault(); //prevent page from reloading
+            event.preventDefault(); // Prevent page reload
 
+            // Get form data
+            const formData = new FormData(form);
 
-            // Set the thank you message text
-            message.textContent = `Thank you for your ${reviewType} feedback, it means a lot to us!`;
-            message.style.display = "block"; // Show the message
+            // Send data to the server using Fetch API
+            fetch("../functions/submit_feedback.php", {
+                method: "POST",
+                body: formData,
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error("Failed to submit feedback");
+                    }
+                })
+                .then((data) => {
+                    // Display the thank you message
+                    const reviewType = formData.get("Review Type"); // Get selected review type
+                    message.textContent = `Thank you for your ${reviewType} feedback, it means a lot to us!`;
+                    message.style.display = "block";
 
-            // Clear the form fields
-            form.reset();
+                    // Clear the form fields
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.error(error);
+                    message.textContent = "Something went wrong. Please try again.";
+                    message.style.color = "red";
+                    message.style.display = "block";
+                });
         });
 
 
