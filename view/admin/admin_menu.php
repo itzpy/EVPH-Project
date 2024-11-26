@@ -1,30 +1,33 @@
 <div class="form-container">
-  <h2>Add a New Menu Item</h2>
-  <form id="adminMenuForm" action="../functions/admin_menu.php" method="post">
-    <label for="name">Item Name:</label>
-    <div class="input-icon">
-      <ion-icon name="restaurant-outline"></ion-icon>
-      <input type="text" id="name" name="name" placeholder="Enter item name" required />
-    </div>
-    <span id="nameError" class="error"></span>
+    <h2>Add a New Menu Item</h2>
+    <form id="adminMenuForm" action="../functions/admin_menu_backend.php" method="post">
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter item name" required />
 
-    <label for="description">Description:</label>
-    <div class="input-icon">
-      <ion-icon name="document-text-outline"></ion-icon>
-      <input type="text" id="description" name="description" placeholder="Enter item description" required />
-    </div>
-    <span id="descriptionError" class="error"></span>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter item description" required></textarea>
 
-    <label for="price">Price:</label>
-    <div class="input-icon">
-      <ion-icon name="pricetag-outline"></ion-icon>
-      <input type="number" id="price" name="price" step="0.01" placeholder="Enter item price" required />
-    </div>
-    <span id="priceError" class="error"></span>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required />
 
-    <button type="submit">Add Item</button>
-  </form>
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="Starter">Starter</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Drink">Drink</option>
+        </select>
+
+        <label for="availability">Availability:</label>
+        <select id="availability" name="availability" required>
+            <option value="1">Available</option>
+            <option value="0">Unavailable</option>
+        </select>
+
+        <button type="submit">Add Menu Item</button>
+    </form>
 </div>
+
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -62,9 +65,9 @@
     }
 
     if (valid) {
-      alert("Item added successfully!");
-      // Add actual submission logic here
+      document.getElementById("adminMenuForm").submit(); // Submit the form
     }
+
   });
 </script>
 

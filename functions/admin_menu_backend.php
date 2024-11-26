@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
+    $categot
 
     function adminUpdateMenu($name, $description, $price) {
         global $conn;

@@ -48,39 +48,63 @@
 
             <!-- Menu Section -->
             <section class="menu-section">
-                <div class="card">
-                    <h2>Menu Items</h2>
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Item ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                                <th>Category</th>
-                                <th>Availability</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php while ($row = $menuResult->fetch_assoc()) { ?>
-                                <tr>
-                                    <td><?= $row['item_id'] ?></td>
-                                    <td><?= htmlspecialchars($row['name']) ?></td>
-                                    <td><?= htmlspecialchars($row['description']) ?></td>
-                                    <td><?= $row['price'] ?></td>
-                                    <td><?= htmlspecialchars($row['category']) ?></td>
-                                    <td><?= $row['availability'] ? 'Available' : 'Unavailable' ?></td>
-                                    <td>
-                                        <button onclick="editMenuItem(<?= $row['item_id'] ?>)">Edit</button>
-                                        <button onclock="confirmDelete(<?= $row['item_id'] ?>)">Delete</button>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+            <div class="card">
+                <h2>Menu Items</h2>
+                <button onclick="toggleAddEditForm()">Add New Item</button>
+                <div id="addEditForm" style="display: none;">
+                    <h3 id="formHeader">Add Item</h3>
+                    <form id="menuForm" action="../view/admin/admin_menu.php" method="post">
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" id="itemId" name="item_id">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="description">Description:</label>
+                        <input type="text" id="description" name="description" required>
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" step="0.01" required>
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" name="category" required>
+                        <label for="availability">Availability:</label>
+                        <select id="availability" name="availability">
+                            <option value="1">Available</option>
+                            <option value="0">Unavailable</option>
+                        </select>
+                        <button type="submit">Save</button>
+                    </form>
                 </div>
-            </section>
+                <!-- Existing Menu Table -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Availability</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $menuResult->fetch_assoc()) { ?>
+                            <tr>
+                                <td><?= $row['item_id'] ?></td>
+                                <td><?= htmlspecialchars($row['name']) ?></td>
+                                <td><?= htmlspecialchars($row['description']) ?></td>
+                                <td><?= $row['price'] ?></td>
+                                <td><?= htmlspecialchars($row['category']) ?></td>
+                                <td><?= $row['availability'] ? 'Available' : 'Unavailable' ?></td>
+                                <td>
+                                    <button onclick="populateForm(<?= htmlspecialchars(json_encode($row)) ?>)">Edit</button>
+                                    <button onclick="confirmDelete(<?= $row['item_id'] ?>)">Delete</button>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
 
             <!-- Orders Section -->
             <section class="orders-section">
@@ -240,6 +264,14 @@
                 window.location.href = "../actions/delete.php?action=order&order_id=" + id;
             }
         }
+        function toggleAddEditForm() {
+        const form = document.getElementById("addEditForm");
+        if (form.style.display === "none" || form.style.display === "") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
     </script>
 
 
