@@ -1,3 +1,4 @@
+/*************  ✨ Codeium Command 🌟  *************/
 /* Modal styling */
 .modal {
     display: none;
@@ -16,8 +17,11 @@
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
     width: 50%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .close {
@@ -33,3 +37,4 @@
     text-decoration: none;
     cursor: pointer;
 }
+/******  b53158a9-7644-48a8-9b4e-36383332541b  *******/
