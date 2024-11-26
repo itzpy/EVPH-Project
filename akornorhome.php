@@ -50,7 +50,7 @@
     <section class="landingpage">
       <div class="content">
         <div class="heading" data-aos="fade-right" data-aos-duration="2000">
-          <h1>Welcome to Akornor Hub</h1>
+          <h1>Welcome to Akornor Hub!</h1>
           <p>
             Akornor has an amazing variety of dishes that consists of both local and continental choices.<br>
             It houses the Ashesi Pool Association which has competitive games every
