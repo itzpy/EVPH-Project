@@ -9,16 +9,35 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
 }
 
 $user_id = $_SESSION['user_id'];
-$item_id = $_POST['item_id'];
-$rating = $_POST['rating'];
-$comments = $_POST['comments'];
+$category = $_POST['category'] ?? null;
+$rating = $_POST['rating'] ?? null;
+$comments = $_POST['comments'] ?? null;
+
+// Debugging: Check received POST data
+if (is_null($category)) {
+    die("Category is missing. POST data: " . print_r($_POST, true));
+}
+
+// Validate inputs
+if (!in_array($category, ['Customer Service', 'Food Quality', 'Pool Table'])) {
+    die("Invalid category selected.");
+}
+if (is_null($rating) || $rating < 1 || $rating > 5) {
+    die("Invalid rating provided.");
+}
 
 // Insert feedback into the database
-$stmt = $conn->prepare("INSERT INTO feedback (user_id, item_id, rating, comments) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("iiis", $user_id, $item_id, $rating, $comments);
-if ($stmt->execute()) {
-    header("Location: customer_dashboard.php");
-} else {
-    echo "Failed to submit feedback.";
+$stmt = $conn->prepare("INSERT INTO feedback (user_id, category, rating, comments) VALUES (?, ?, ?, ?)");
+if (!$stmt) {
+    die("Prepare failed: " . $conn->error);
 }
+$stmt->bind_param("isis", $user_id, $category, $rating, $comments);
+
+if ($stmt->execute()) {
+    header("Location: ../view/dashboard.php?feedback=success");
+} else {
+    die("Failed to submit feedback: " . $stmt->error);
+}
+
+$stmt->close();
 ?>

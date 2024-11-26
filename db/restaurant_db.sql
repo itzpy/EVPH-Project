@@ -267,3 +267,11 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
+ALTER TABLE feedback
+DROP FOREIGN KEY feedback_ibfk_2;
+
+ALTER TABLE feedback
+DROP COLUMN item_id;
+
+ALTER TABLE feedback
+ADD category ENUM('Customer Service', 'Food Quality', 'Pool Table') NOT NULL AFTER user_id;

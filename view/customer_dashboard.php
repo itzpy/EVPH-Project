@@ -122,7 +122,7 @@
               class="animate__animated animate__bounce"></ion-icon></h2>
           <p style="margin-bottom: 1.5em">Plan ahead and secure a table for your next visit. We can't wait to welcome
             you back!</p>
-          <a href="reservation.php" class="button-link" style="display: block; width: fit-content; margin: 0 auto">Book
+          <a href="../view/reservation.php" class="button-link" style="display: block; width: fit-content; margin: 0 auto">Book
             Now</a>
         </div>
       </section>

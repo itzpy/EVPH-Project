@@ -15,7 +15,7 @@ $new_status = $_POST['status'];
 $stmt = $conn->prepare("UPDATE orders SET status = ? WHERE order_id = ?");
 $stmt->bind_param("si", $new_status, $order_id);
 if ($stmt->execute()) {
-    header("Location: admin_dashboard.php");
+    header("Location: ../view/dashboard.php");
 } else {
     echo "Failed to update order status.";
 }
