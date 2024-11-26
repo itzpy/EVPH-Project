@@ -16,10 +16,9 @@
 <body>
     <p style="text-align:center; 
     padding: 20px;font-size: 1.2em;color: #555;
-    line-height: 1.6;max-width: 800px;margin: 0 auto;">Thank you for ordering from Akornor as always, we want to
-        improve<br>
-        your customer experience and we want to make sure that we capture all of your <br>
-        comfort needs as well as your food desires</p>
+    line-height: 1.6;max-width: 800px;margin: 0 auto;">Thank you for ordering from Akornor! We are always looking for ways to improve<br>
+        your customer experience and we want to make sure that we collect all of your <br>
+        feedback to improve our services.</p>
 
     <div class="form-container"  data-aos="fade-right" data-aos-duration="2000">
         <h2 class="form-title">Feedback</h2>
