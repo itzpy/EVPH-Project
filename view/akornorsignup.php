@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form id="signupForm" action="../view/akornorsignup.php" method="POST">
           <div class="top">
             <span>
-              Have an account?
+              Already have an account?
               <a href="../view/akornorlogin.php" onclick="login()">Login</a>
             </span>
             <header>Sign Up</header>
