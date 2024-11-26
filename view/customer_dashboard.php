@@ -137,7 +137,7 @@
               class="animate__animated animate__bounce"></ion-icon></h2>
           <p style="margin-bottom: 1.5em">We value your opinion and would love to hear from you. Your feedback will help
             us improve our customer experience.</p>
-          <a href="../view/review.php" class="button-link"
+          <a href="../view/Review.php" class="button-link"
             style="display: block; width: fit-content; margin: 0 auto">Take Our
             Survey</a>
         </div>
