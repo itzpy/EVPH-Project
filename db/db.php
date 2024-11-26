@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";  
-$username = "root";         // Database username
-$password = "";             // Database password
-$dbname = "restaurant_db";  // Database name
+$servername = "localhost";
+$username = "edem.anagbah";         
+$password = "Ed21emk@2023";            
+$dbname = "webtech_fall2024_edem_anagbah";  
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

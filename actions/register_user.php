@@ -82,7 +82,7 @@ if (isset($_POST)) {
     }
 
     // Check for existing user
-    $check_query = "SELECT * FROM users WHERE email = '$email'";
+    $check_query = "SELECT * FROM user WHERE email = '$email'";
     $check_result = mysqli_query($conn, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
@@ -95,7 +95,7 @@ if (isset($_POST)) {
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     // Prepare SQL insert statement
-    $insert_query = "INSERT INTO users (
+    $insert_query = "INSERT INTO user (
         fname, 
         lname, 
         student_id,
@@ -126,7 +126,7 @@ if (isset($_POST)) {
         echo json_encode($response);
         exit();
     }
-}else{
+} else {
     // If not a POST request
     $response['errors']['general'] = "Invalid request method";
     echo json_encode($response);

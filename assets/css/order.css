@@ -13,12 +13,11 @@ body::before {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #722F37, #482126), url('../assets/images/background.jpg') no-repeat center center/cover;
+    background: url('../assets/images/background.jpg');
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
-    margin: 0;
+    margin-top: 100px;
 }
 
 form {
@@ -30,6 +29,7 @@ form {
     height: auto;
     text-align: center;
     animation: fadeIn 1s ease-in;
+    align-items:flex-start;
 }
 
 header h1 {
@@ -61,6 +61,15 @@ input {
     transition: border-color 0.3s ease;
 }
 
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
 input:focus {
     border-color: #722F37;
     outline: none;
@@ -71,7 +80,7 @@ button {
     background-color: #722F37;
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 6rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -84,3 +93,4 @@ button:hover {
 button:active {
     transform: scale(0.98);
 }
+

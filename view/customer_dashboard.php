@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
+
   <title>Customer Dashboard</title>
   <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
@@ -12,12 +17,12 @@
   <?php include "../utils/navigation.php"; ?>
   <div class="dashboard-container">
     <div class="main-content">
-      <h1>Welcome!</h1>
+      <h1>Welcome! <ion-icon name="happy-outline"></ion-icon></h1>
 
       <!-- Menu Section -->
-      <section class="menu-section">
+      <section class="menu-section" data-aos="fade-right" data-aos-duration="2000">
         <div class="card">
-          <h2>Menu</h2>
+          <h2>Menu <ion-icon name="restaurant-outline" class="animate__animated animate__bounce"></ion-icon></h2>
           <table border="1">
             <thead>
               <tr>
@@ -48,9 +53,9 @@
       </section>
 
       <!-- My Orders Section -->
-      <section class="my-orders-section">
+      <section class="my-orders-section" data-aos="fade-right" data-aos-duration="2000">
         <div class="card">
-          <h2>My Orders</h2>
+          <h2>My Orders <ion-icon name="cart-outline" class="animate__animated animate__bounce"></ion-icon></h2>
           <table border="1">
             <thead>
               <tr>
@@ -69,6 +74,7 @@
                   <td><?= htmlspecialchars($row['status']) ?></td>
                   <td><?= $row['created_at'] ?></td>
                   <td>
+                    <button onclick="confirmPlaceOrder(<?= $row['order_id'] ?>)">Order Again</button>
                     <button onclick="confirmCancelOrder(<?= $row['order_id'] ?>)">Cancel</button>
                   </td>
                 </tr>
@@ -79,9 +85,10 @@
       </section>
 
       <!-- My Reservations Section -->
-      <section class="my-reservations-section">
+      <section class="my-reservations-section" data-aos="fade-right" data-aos-duration="2000">
         <div class="card">
-          <h2>My Reservations</h2>
+          <h2>My Reservations <ion-icon name="calendar-outline" class="animate__animated animate__bounce"></ion-icon>
+          </h2>
           <table border="1">
             <thead>
               <tr>
@@ -109,21 +116,17 @@
         </div>
       </section>
 
+
       <!-- Place Reservation Section -->
-      <section class="place-reservation-section">
+      <section class="place-reservation-section" data-aos="fade-right" data-aos-duration="2000">
         <div class="card">
-          <form id="reservationForm" action="../functions/make_reservation.php" method="POST">
-            <h2>Make a Reservation</h2>
-            <div>
-              <label for="reservation_time">Reservation Time:</label>
-              <input type="datetime-local" id="reservation_time" name="reservation_time" required>
-            </div>
-            <div>
-              <label for="number_of_people">Number of People:</label>
-              <input type="number" id="number_of_people" name="number_of_people" min="1" required>
-            </div>
-            <button type="submit">Submit</button>
-          </form>
+          <h2>Make a Reservation <ion-icon name="restaurant-outline"
+              class="animate__animated animate__bounce"></ion-icon></h2>
+          <p style="margin-bottom: 1.5em">Plan ahead and secure a table for your next visit. We can't wait to welcome
+            you back!</p>
+          <a href="../view/reservation.php" class="button-link"
+            style="display: block; width: fit-content; margin: 0 auto">Book
+            Now</a>
         </div>
       </section>
 
@@ -148,9 +151,8 @@
   <script src="../assets/javascript/navigation.js"></script>
   <script>
     function confirmPlaceOrder(item_id) {
-      if (confirm("Are you sure you want to place this order?")) {
-        window.location.href = "../functions/place_order.php?item_id=" + item_id;
-      };
+      window.location.href = "../view/order.php?item_id=" + item_id;
+
     }
     function confirmCancelOrder(order_id) {
       if (confirm("Are you sure you want to cancel this order?")) {
@@ -162,27 +164,22 @@
         window.location.href = "../functions/cancel_reservation.php?id=" + reservation_id;
       };
     }
-    function confirmPlaceReservation(reservation_id) {
-      if (confirm("Are you sure you want to place this reservation?")) {
-        window.location.href = "../functions/make_reservation.php?id=" + reservation_id;
-      };
-    }
-  </script>
-  <script>
-    document.getElementById("feedbackForm").addEventListener("submit", function (event) {
-      event.preventDefault();
 
-      this.submit();
-    });
-  </script>
-  <script>
-    document.getElementById("reservationForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      this.submit();
-    })
+    function confirmDeleteFeedback(id) {
+      if (confirm("Are you sure you want to delete this feedback?")) {
+        window.location.href = "../actions/delete.php?action=feedback&feedback_id=" + id;
+      }
+    }
+
+
   </script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 <div class="navigation">
   <ul>
     <li>
@@ -7,26 +8,26 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../view/dashboard.php">
         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
         <span class="title">Dashboard</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../view/menu.php">
         <span class="icon"><ion-icon name="grid-outline"></ion-icon></span>
         <span class="title">Menu</span>
       </a>
     </li>
     <li>
       <a href="../view/order.php">
-        <span class="icon"><ion-icon name="reorder-four-outline"></ion-icon></span>
+        <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
         <span class="title">Order</span>
       </a>
     </li>
     <li>
       <a href="../view/reservation.php">
-        <span class="icon"><ion-icon name="bookmark-outline"></ion-icon></span>
+        <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
         <span class="title">Reservation</span>
       </a>
     </li>
@@ -37,7 +38,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../actions/logout.php">
         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
         <span class="title">Sign Out</span>
       </a>

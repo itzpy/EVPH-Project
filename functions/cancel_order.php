@@ -15,7 +15,7 @@ $user_id = $_SESSION['user_id'];
 $stmt = $conn->prepare("DELETE FROM orders WHERE order_id = ? AND user_id = ? AND status = 'pending'");
 $stmt->bind_param("ii", $order_id, $user_id);
 if ($stmt->execute()) {
-    header("Location: customer_dashboard.php");
+    header("Location: ../view/dashboard.php");
 } else {
     echo "Failed to cancel the order.";
 }

@@ -11,6 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = trim(htmlspecialchars($_POST['lname']));
     $email = trim(htmlspecialchars($_POST['email']));
     $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm-password'];
+
+    if ($password !== $confirmPassword) {
+      throw new Exception("Passwords do not match");
+    }
 
     if (empty($fname) || empty($lname) || empty($email) || empty($password)) {
       throw new Exception("All fields are required");
@@ -20,11 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       throw new Exception("Invalid email format");
     }
 
-    $stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT user_id FROM user WHERE email = ?");
     if (!$stmt) {
       throw new Exception("Database error: " . $conn->error);
     }
-
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -38,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     $role = 2;
-    $stmt = $conn->prepare("INSERT INTO users ( fname, lname,  email, password, role) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO user ( fname, lname,  email, password, role) VALUES (?, ?, ?, ?, ?)");
     if (!$stmt) {
       throw new Exception("Database error: " . $conn->error);
     }
@@ -66,9 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
   <meta name="Author" content="Papa Yaw Badu" />
-  <title>Register - Recipe Sharing Platform</title>
+  <title>Register - Akornor Hub</title>
   <link rel="stylesheet" href="../assets/css/login.css" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -77,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="wrapper">
     <nav class="nav animate-fade-right duration-1000 delay-200">
       <div class="nav-logo">
-        <p>Akornor</p>
+        <p>Akornor Hub</p>
       </div>
       <div class="nav-menu" id="navMenu">
         <ul>
@@ -87,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
       </div>
       <div class="nav-button">
-        <a href="../akonorlogin.php">
+        <a href="../view/akornorlogin.php">
           <button class="btn white-btn" id="loginBtn">Log In</button>
         </a>
         <button class="btn" id="signupBtn">Sign Up</button>
@@ -130,7 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div id="passwordError" class="error-message"></div>
           </div>
           <div class="input-box">
-            <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" />
+            <input type="password" id="confirm-password" class="input-field" name="confirm-password"
+              placeholder="Confirm Password" required />
             <i class="bx bx-lock-alt"></i>
             <div id="confirmPasswordError" class="error-message"></div>
           </div>
@@ -148,6 +154,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- <script src="/../assets/javascript/register.js"></script> -->
   <script src="../assets/javascript/signupValidation.js"></script>
+
+
+
 
 </body>
 

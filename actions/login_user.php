@@ -36,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response['errors']['password'] = "Password is required";
     }
 
-      // Check if there are any validation errors
-      if (!empty($response['errors'])) {
+    // Check if there are any validation errors
+    if (!empty($response['errors'])) {
         echo json_encode($response);
         exit();
     }
 
     // Check for existing user
-    $check_query = "SELECT * FROM users WHERE email = '$email'";
+    $check_query = "SELECT * FROM user WHERE email = '$email'";
     $check_result = mysqli_query($conn, $check_query);
 
     if (mysqli_num_rows($check_result) === 0) {
