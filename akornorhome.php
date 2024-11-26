@@ -23,7 +23,7 @@
         <div class="nav-menu" id="navMenu">
 
           <ul>
-            <li><a href="#menu" class="link active">Menu</a></li>
+            <li><a href="../view/menu.php" class="link active">Menu</a></li>
             <li><a href="#aboutus" class="link">About Us</a></li>
             <li><a href="" class="link">Contact Us</a></li>
           </ul>
