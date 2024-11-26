@@ -16,7 +16,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url("./assets/images/background.jpg");
+        background-image: url("../assets/images/background.jpg");
         background-size: cover;
         background-position: center;
         border-radius: 8px;
@@ -33,7 +33,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba(34, 34, 34, 0.85); /* Darker background */
+        background-color: rgba(34, 34, 34, 0.85); 
         color: #fff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         font-family: Arial, sans-serif;
@@ -48,7 +48,7 @@
       }
 
       .header .logo:hover {
-        color: #e14b4e; /* Subtle color change on hover */
+        color: #e14b4e;
       }
 
       .header .nav-buttons a {
@@ -60,18 +60,18 @@
         border-radius: 25px; /* Rounded edges */
         font-weight: bold;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
       }
 
       .header .nav-buttons a:hover {
         background-color: #e14b4e;
-        transform: scale(1.05); /* Slightly larger on hover */
+        transform: scale(1.05); 
       }
 
       .header .nav-buttons {
         display: flex;
         align-items: center;
-        gap: 10px; /* Space between buttons */
+        gap: 10px; 
       }
 
       /* Card Section */

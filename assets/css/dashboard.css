@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
 
@@ -16,20 +16,21 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 .dashboard-container {
     background: none;
     min-height: 100vh;
-
 }
+
 .navigation {
     position: fixed;
     inset: 20px;
-    background:  rgb(94, 34, 8);
+    background: rgb(94, 34, 8);
     width: 80px;
-    border-left: 10px solid  rgb(239, 109, 53);
+    border-left: 10px solid rgb(239, 109, 53);
     border-radius: 50px;
     overflow: hidden;
-    box-shadow: 15px 15px 25px rgba(0,0,0,0.05);
+    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.05);
     transition: 0.5s;
 }
 
@@ -46,33 +47,30 @@ body {
     height: 50px;
     background: #fff;
     border-radius: 50%;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.toggle::before {
-    content: '';
-    position: absolute;
-    width: 26px;
-    height: 3px;
-    border-radius: 3px;
-    background:  rgb(239, 109, 53);
-    transform: translateY(-5px);
-    transition: 1s;
-}
-
+.toggle::before,
 .toggle::after {
     content: '';
     position: absolute;
     width: 26px;
     height: 3px;
     border-radius: 3px;
-    background:  rgb(239, 109, 53);
-    transform: translateY(5px);
+    background: rgb(239, 109, 53);
     transition: 1s;
+}
+
+.toggle::before {
+    transform: translateY(-5px);
+}
+
+.toggle::after {
+    transform: translateY(5px);
 }
 
 .navigation.active .toggle::before {
@@ -95,7 +93,6 @@ body {
     width: 100%;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    /* background: #fff; */
 }
 
 .navigation ul li:hover {
@@ -108,46 +105,43 @@ body {
     background: none;
 }
 
-.navigation ul li:not(:first-child):hover::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border-bottom-right-radius: 20px;
-    box-shadow: 7.5px 7.5px 0 7.5px #fff;
-}
-
+.navigation ul li:not(:first-child):hover::before,
 .navigation ul li:not(:first-child):hover::after {
     content: '';
     position: absolute;
-    bottom: -20px;
-    right: 0;
     width: 20px;
     height: 20px;
     background: transparent;
+    border-radius: 20px;
+    box-shadow: 7.5px 7.5px 0 7.5px #fff;
+}
+
+.navigation ul li:not(:first-child):hover::before {
+    top: -20px;
+    right: 0;
+    border-bottom-right-radius: 20px;
+}
+
+.navigation ul li:not(:first-child):hover::after {
+    bottom: -20px;
+    right: 0;
     border-top-right-radius: 20px;
-    box-shadow: 7.5px -7.5px 0 7.5px #fff;
 }
 
 .navigation ul li a {
     position: relative;
-    display: block;
-    width: 100%;
     display: flex;
+    width: 100%;
     text-decoration: none;
     color: #fff;
 }
 
 .navigation ul li:hover:not(:first-child) a {
-    color:  rgb(239, 109, 53);
+    color: rgb(239, 109, 53);
 }
 
 .navigation ul li a .icon {
     position: relative;
-    display: block;
     min-width: 60px;
     height: 60px;
     line-height: 70px;
@@ -160,14 +154,13 @@ body {
 
 .navigation ul li a .title {
     position: relative;
-    display: block;
     padding: 0 10px;
     height: 60px;
     line-height: 60px;
     text-align: start;
     white-space: nowrap;
 }
-/* Main Content Styles */
+
 .main-content {
     position: relative;
     min-height: auto;
@@ -190,11 +183,12 @@ body {
     background: white;
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 0px;
 }
-.card .view-user-button{
-font-weight: 600;
+
+.card .view-user-button {
+    font-weight: 600;
     padding: 10px 10px;
     width: 150px;
     height: 50px;
@@ -208,6 +202,7 @@ font-weight: 600;
     border: none;
     transition: 0.5s linear;
 }
+
 .analytics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -233,7 +228,6 @@ font-weight: 600;
 }
 
 h3 {
-
     margin-top: 20px;
     margin-bottom: 15px;
     margin: 20px;
@@ -242,16 +236,14 @@ h3 {
 table {
     width: 80%;
     border-collapse: collapse;
-    margin-top: 20px; 
+    margin: 20px auto 100px;
     border: 1px solid #ddd;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 100px;
 }
- thead, tbody{
+
+thead, tbody {
     border-radius: 20px;
 }
+
 th, td {
     padding: 12px;
     text-align: center;
@@ -267,7 +259,7 @@ tr:hover {
     background-color: #f5f5f5;
 }
 
-button {
+button, .button-link {
     padding: 12px 25px;
     background-color: #722F37;
     color: #fff;
@@ -277,34 +269,63 @@ button {
     transition: background-color 0.3s ease;
 }
 
-
-button:hover {
+button:hover, .button-link:hover {
     background-color: #5a1e2a;
 }
 
-button:active {
+button:active, .button-link:active {
     transform: scale(0.98);
 }
 
-/* Style for links that should look like buttons */
 .button-link {
     display: inline-block;
-    padding: 12px 25px;
-    background-color: #722F37;
-    color: #fff;
     text-decoration: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.button-link:hover {
-    background-color: #5a1e2a;
+@media (max-width: 768px) {
+    .navigation {
+        width: 60px;
+    }
+
+    .navigation.active {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .main-content.active {
+        margin-left: 280px;
+    }
+
+    .analytics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
-.button-link:active {
-    transform: scale(0.98);
+@media (max-width: 480px) {
+    .navigation {
+        width: 50px;
+    }
+
+    .navigation.active {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .main-content.active {
+        margin-left: 220px;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        width: 90%;
+    }
 }
-
-
-  
