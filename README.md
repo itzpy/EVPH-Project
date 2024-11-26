@@ -8,6 +8,9 @@ This a link to our website
 http://169.239.251.102:3341/phpmyadmin/index.php?route=/&route=%2F&db=webtech_fall2024_papa_badu
 This is the link to our Database 
 
+https://www.canva.com/design/DAGTqn_zT4k/m_qjnrnzXJ7QeIWbZrm6QA/edit?utm_content=DAGTqn_zT4k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+This is the link to our slides
+
 OUR PLANNED IMPLEMENTATIONS
 Architecture Overview:
 1. Planned Website Pages:
