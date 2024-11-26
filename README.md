@@ -11,11 +11,13 @@ This is the link to our Database
 OUR PLANNED IMPLEMENTATIONS
 Architecture Overview:
 1. Planned Website Pages:
-* Home Page: A welcoming page displaying the restaurant's basic information, promotions, and access to the menu.
+* Home Page: A welcoming page displaying the restaurant's basic information, promotions.
+* Contact Us: Provides the option to contact Akornor hub for further enquireies
+* About Us: Provides further information about Akornor hub
 * Menu Page: A dynamic page that displays the daily meal options, prices, and special offers.
-* Order Page: Allows users to place online orders for dine-in or take-out, with options for customization.
+* Order Page: Allows users to place online orders.
 * Reservation Page: Provides a system for customers to reserve tables, especially during peak hours.
-* Feedback/Review Page: A section for users to leave feedback, rate meals, and view other customer reviews.
+* Feedback/Review Page: A section for users to leave feedback, rate meals.
 * Admin Dashboard: Restricted to staff, this page enables management of the menu, orders, customer feedback, and site updates.
 2. Supporting Tables and PHP Functions:
 * Database Tables:
@@ -25,20 +27,25 @@ Architecture Overview:
     * reservations: Manages table reservation information (user, time, number of people).
     * feedback: Stores customer feedback and reviews.
 * Key PHP Functions:
-    * getMenuItems(): Retrieves available menu items from the database for display on the menu page.
-    * placeOrder(): Handles user orders, storing them in the orders table.
-    * submitFeedback(): Stores customer feedback in the feedback table.
-    * makeReservation(): Allows customers to reserve tables by entering data into the reservations table.
-    * adminUpdateMenu(): Enables the admin to add, remove, or update menu items.
+    * admin_menu_backend(): Handles adding new menu items (name, description, price) to the database.
+    * auth_functions(): Handles user login and role-based authentication checks.
+    * cancel_order(): Cancels an existing customer order in the system.
+    * cancel_reservation(): Cancels a reservation in the system.
+    * delete_user(): Deletes a user account from the system.
+    * make_reservation(): Allows customers to create a new reservation in the system.
+    * place_order(): Enables customers to place a new order in the system.
+    * submit_feedback(): Submits customer feedback into the database.
+    * update_order_status(): Updates the status of an existing order (e.g., from pending to completed).
+    * update_user():Updates user information (e.g., name, contact details) in the database.
 3. Implementation Status:
-* Implemented Pages:
-    * Home Page: Basic layout and some dynamic content completed.
-    * Menu Page: Dynamic display of menu items with prices; partial functionality in place.
-    * Order Page: Basic form for placing orders is functional but may require further integration with the back-end.
-* In Development:
-    * Reservation Page: Core structure done; awaiting integration with the reservations table.
-    * Feedback Page: Layout completed; need to implement form functionality.
-    * Admin Dashboard: Still in progress, awaiting integration with menu and order management functions.
+* Home Page: Basic layout completed with dynamic content integrated.
+* Menu Page: Fully functional dynamic display of menu items with prices.
+* Order Page: Complete form functionality for placing orders, integrated with the back-end.
+* Reservation Page: Fully integrated with the reservations table for managing reservations.
+* Feedback Page: Form functionality implemented and fully operational.
+* Admin Dashboard: Fully implemented with menu and order management functions integrated.
+* Contact Us Page: Complete page with necessary contact information.
+* About Us Page: Completed with detailed information about the restaurant and services.
 4. Frontend Technologies:
 * CSS: A custom stylesheet is being used to ensure a consistent color scheme and responsive layout across all pages.
 * JavaScript/jQuery: Basic form validation and dynamic updates to the menu page rely on jQuery.
