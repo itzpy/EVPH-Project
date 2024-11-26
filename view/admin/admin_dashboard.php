@@ -23,7 +23,7 @@
             <!-- User Section -->
             <section class="user-section" data-aos="fade-right" data-aos-duration="2000">
                 <div class="card">
-                    <h2>user</h2>
+                    <h2>Users</h2>
                     <table border="1">
                         <thead>
                             <tr>
