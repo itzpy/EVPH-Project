@@ -83,8 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="nav-menu" id="navMenu">
         <ul>
           <li><a href="../akornorhome.php" class="link active">Home</a></li>
-          <li><a href="../akornorhome.php" class="link">About Us</a></li>
-          <li><a href="" class="link">Contact Us</a></li>
+          <li><a href="About_Us.html" class="link">About Us</a></li>
+          <li><a href="Contact_Us.html" class="link">Contact Us</a></li>
         </ul>
       </div>
       <div class="nav-button">

@@ -25,7 +25,7 @@
           <ul>
             <li><a href="view/menu.php" class="link active">Menu</a></li>
             <li><a href="view/About_Us.html" class="link">About Us</a></li>
-            <li><a href="" class="link">Contact Us</a></li>
+            <li><a href="view/Contact_Us.html" class="link">Contact Us</a></li>
           </ul>
         </div>
         <div class="nav-button">
