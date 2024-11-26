@@ -14,7 +14,7 @@ function deleteUser($user_id)
     }
 
     // SQL to delete the user
-    $query = "DELETE FROM users WHERE user_id = ?";
+    $query = "DELETE FROM user WHERE user_id = ?";
 
     if ($stmt = $conn->prepare($query)) {
         // Bind the user_id parameter

@@ -29,7 +29,7 @@ switch ($action) {
             $role = $_POST['role'];
 
 
-            $stmt = $conn->prepare("UPDATE users SET fname = ?, lname = ?, email = ?, role = ? WHERE user_id = ?");
+            $stmt = $conn->prepare("UPDATE user SET fname = ?, lname = ?, email = ?, role = ? WHERE user_id = ?");
             $stmt->bind_param("sssss", $fname, $lname, $email, $role, $user_id);
             if ($stmt->execute()) {
                 header("Location: ../view/dashboard.php");

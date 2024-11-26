@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       throw new Exception("Invalid email format");
     }
 
-    $stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT user_id FROM user WHERE email = ?");
     if (!$stmt) {
       throw new Exception("Database error: " . $conn->error);
     }
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     $role = 2;
-    $stmt = $conn->prepare("INSERT INTO users ( fname, lname,  email, password, role) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO user ( fname, lname,  email, password, role) VALUES (?, ?, ?, ?, ?)");
     if (!$stmt) {
       throw new Exception("Database error: " . $conn->error);
     }
