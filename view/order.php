@@ -40,7 +40,8 @@
         <select id="payment_method" name="payment_method" required>
             <option value="cash">Cash</option>
             <option value="card">Card</option>
-            <option value="online">Online</option>
+            <option value="mealplan">Meal Plan</option>
+            <option value="mobilemoney">Mobile Money</option>
         </select>
 
         <button type="submit" class="animate__animated animate__pulse animate__infinite">Place Order</button>
