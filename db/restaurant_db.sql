@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 26, 2024 at 11:30 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2024 at 11:45 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,8 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`feedback_id`, `user_id`, `category`, `rating`, `comments`, `created_at`) VALUES
-(1, 1, 'Customer Service', 1, 'Bad', '2024-11-26 21:00:49');
+(1, 1, 'Customer Service', 1, 'Bad', '2024-11-26 21:00:49'),
+(2, 3, 'Food Quality', 4, 'These drinks were very price convenient', '2024-11-26 22:40:39');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,9 @@ INSERT INTO `orders` (`order_id`, `user_id`, `total_price`, `status`, `payment_m
 (1, 1, 56.00, 'pending', 'cash', '2024-11-26 21:48:58'),
 (2, 2, 84.00, 'pending', 'cash', '2024-11-26 21:54:30'),
 (3, 2, 84.00, 'pending', 'cash', '2024-11-26 21:55:05'),
-(4, 2, 40.00, 'pending', 'card', '2024-11-26 21:56:15');
+(4, 2, 40.00, 'pending', 'card', '2024-11-26 21:56:15'),
+(5, 3, 28.00, 'pending', 'cash', '2024-11-26 22:38:32'),
+(6, 3, 28.00, 'pending', 'cash', '2024-11-26 22:38:39');
 
 -- --------------------------------------------------------
 
@@ -141,7 +144,9 @@ INSERT INTO `order_details` (`detail_id`, `order_id`, `item_id`, `quantity`, `pr
 (1, 1, 1, 2, 28.00),
 (2, 2, 3, 3, 28.00),
 (3, 3, 15, 3, 28.00),
-(4, 4, 13, 5, 8.00);
+(4, 4, 13, 5, 8.00),
+(5, 5, 1, 1, 28.00),
+(6, 6, 1, 1, 28.00);
 
 -- --------------------------------------------------------
 
@@ -157,6 +162,13 @@ CREATE TABLE `reservations` (
   `status` enum('pending','confirmed','cancelled') DEFAULT 'pending',
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`reservation_id`, `user_id`, `reservation_time`, `number_of_people`, `status`, `created_at`) VALUES
+(1, 3, '2024-11-28 14:40:00', 3, 'pending', '2024-11-26 22:39:22');
 
 -- --------------------------------------------------------
 
@@ -180,7 +192,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `fname`, `lname`, `email`, `password`, `role`, `created_at`) VALUES
 (1, 'Hassan', 'Yakubu', 'yhassan677@gmail.com', '$2y$10$ZkxVoXtf98/IIU2Itp5EJu3MaLo6rKPgrjqaqFs.Ab9M4Rgv7krEC', 'admin', '2024-11-26 20:54:26'),
-(2, 'Victor', 'Quagraine', 'vquagraine@gmail.com', '$2y$10$h7oBonICe9sMUt65RE1E5.S0P2itSQVzT8.3JMvpkcPNEV3wEG1cm', 'customer', '2024-11-26 21:52:21');
+(2, 'Victor', 'Quagraine', 'vquagraine@gmail.com', '$2y$10$h7oBonICe9sMUt65RE1E5.S0P2itSQVzT8.3JMvpkcPNEV3wEG1cm', 'customer', '2024-11-26 21:52:21'),
+(3, 'Papa', 'Badu', 'raybadu10@gmail.com', '$2y$10$jEi/nJ4/.5.vfnWNaqOYT.T2l/mYsQNblRmIyNOORVbEAW3qfKDaS', 'admin', '2024-11-26 22:38:20');
 
 --
 -- Indexes for dumped tables
@@ -249,7 +262,7 @@ ALTER TABLE `admin_logs`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu_items`
@@ -261,25 +274,25 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
