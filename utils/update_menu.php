@@ -14,7 +14,7 @@ session_start();
 </head>
 
 <body>
-    <form action="../actions/update.php?action=menu" method="post" enctype="multipart/form-data">
+    <form action="../actions/update.php?action=menu" method="post">
         <header>
             Update Menu Item
         </header>
@@ -36,11 +36,14 @@ session_start();
             <option value="beverage">Beverage</option>
         </select>
 
-        <label for="image">Image:</label>
-        <input type="file" id="image" name="image" accept="image/*">
+        <label for="availability">Availability:</label>
+        <select id="availability" name="availability" required class="form-input">
+            <option value="1">Available</option>
+            <option value="0">Not Available</option>
+        </select>
 
-        <input type="hidden" id="menu_id" name="menu_id" 
-            value="<?php echo htmlspecialchars($_GET['menu_id'], ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="hidden" id="item_id" name="item_id" 
+            value="<?php echo htmlspecialchars($_GET['item_id'], ENT_QUOTES, 'UTF-8'); ?>">
 
         <button type="submit">Update Menu Item</button>
     </form>

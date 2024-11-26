@@ -28,19 +28,17 @@ session_start();
             <option value="5">5 Stars</option>
         </select>
 
-        <label for="comment">Comment:</label>
-        <textarea id="comment" name="comment" rows="4" required></textarea>
-
-        <label for="ReviewType">Review Type:</label>
-        <select id="ReviewType" name="ReviewType" required class="form-input">
-            <option value="food">Food</option>
-            <option value="service">Service</option>
-            <option value="ambiance">Ambiance</option>
-            <option value="overall">Overall Experience</option>
-        </select>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="4" required></textarea>
 
         <input type="hidden" id="feedback_id" name="feedback_id" 
             value="<?php echo htmlspecialchars($_GET['feedback_id'], ENT_QUOTES, 'UTF-8'); ?>">
+            
+        <input type="hidden" id="user_id" name="user_id" 
+            value="<?php echo htmlspecialchars($_SESSION['user_id'], ENT_QUOTES, 'UTF-8'); ?>">
+            
+        <input type="hidden" id="item_id" name="item_id" 
+            value="<?php echo htmlspecialchars($_GET['item_id'], ENT_QUOTES, 'UTF-8'); ?>">
 
         <button type="submit">Update Feedback</button>
     </form>
