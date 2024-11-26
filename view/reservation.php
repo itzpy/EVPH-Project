@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/reservation.css" />
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
   <title>Akornor Reservation</title>
 </head>
 
@@ -14,7 +16,7 @@
       <h1>Akornor Reservation</h1>
       <p>Reserve a table for your next meal</p>
     </header>
-    <form action="../functions/make_reservation.php" method="post">
+    <form action="../functions/make_reservation.php" method="post" data-aos="fade-right" data-aos-duration="2000">
       <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
 
       <label for="date"><ion-icon name="calendar-outline"></ion-icon> Date:</label>

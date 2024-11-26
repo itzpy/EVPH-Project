@@ -41,7 +41,8 @@ switch ($action) {
             $stmt = $conn->prepare("DELETE FROM orders WHERE order_id = ?");
             $stmt->bind_param("i", $order_id);
             if ($stmt->execute()) {
-                echo "Order deleted successfully.";
+                header("Location: ../view/dashboard.php");
+                exit();
             } else {
                 echo "Failed to delete order.";
             }
@@ -57,7 +58,8 @@ switch ($action) {
             $stmt = $conn->prepare("DELETE FROM menu_items WHERE item_id = ?");
             $stmt->bind_param("i", $item_id);
             if ($stmt->execute()) {
-                echo "Menu item deleted successfully.";
+                header("Location: ../view/dashboard.php");
+                exit();
             } else {
                 echo "Failed to delete menu item.";
             }
@@ -71,9 +73,9 @@ switch ($action) {
         if (isset($_GET['reservation_id'])) {
             $reservation_id = intval($_GET['reservation_id']);
             $stmt = $conn->prepare("DELETE FROM reservations WHERE reservation_id = ?");
-            $stmt->bind_param("i", $reservation_id);            
+            $stmt->bind_param("i", $reservation_id);
             if ($stmt->execute()) {
-                header("Location: ../view/admin/admin_dashboard.php");
+                header("Location: ../view/dashboard.php");
                 exit();
             } else {
                 echo "Failed to delete reservation.";
@@ -83,19 +85,20 @@ switch ($action) {
         }
         break;
 
-        case "feedback":
+    case "feedback":
         // Delete a feedback
         if (isset($_GET['feedback_id'])) {
             $item_id = intval($_GET['feedback_id']);
             $stmt = $conn->prepare("DELETE FROM feedback WHERE feedback_id = ?");
             $stmt->bind_param("i", $item_id);
             if ($stmt->execute()) {
-                echo "Feedback deleted successfully.";
-                } else {
+                header("Location: ../view/dashboard.php");
+                exit();
+            } else {
                 echo "Failed to delete feedback.";
             }
         } else {
-            echo "Feedback ID not provided.";   
+            echo "Feedback ID not provided.";
         }
         break;
 

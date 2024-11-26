@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user_id = $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ session_start();
         <input type="email" id="email" name="email" required>
 
         <label for="role" class="form-label">Role:</label>
-        <select id="ReviewType" name="role" required class="form-input">
+        <select id="ReviewType" name="Review Type" required class="form-input">
             <option value="admin">Admin</option>
             <option value="customer">Customer</option>
         </select>

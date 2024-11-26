@@ -20,3 +20,25 @@ if ($stmt->execute()) {
     echo "Failed to update reservation status.";
 }
 ?>
+
+<!-- Modal for Updating a Reservation -->
+<div id="addItemModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close" onclick="closeAddItemModal()">&times;</span>
+                    <h3>Update Reservation Status</h3>
+                    <form action="../functions/update_reservation_status.php" method="POST" class="add-menu-form">
+                        <label for="reservation_id">Reservation ID:</label>
+                        <input type="hidden" id=<?= $row['reservation_id'] ?> name="reservation_id"
+                            value="<?= $row['reservation_id'] ?>">
+
+                        <label for="availability">Status:</label>
+                        <select id="availability" name="availability">
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
+            </div>

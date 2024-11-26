@@ -3,7 +3,7 @@ session_start();
 include "../db/db.php";
 
 // Check if the user is logged in
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../view/akornorlogin.php");
     exit();
 }
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute();
 
             $conn->commit(); // Commit transaction
-            header("Location: ../view/customer_dashboard.php");
+            header("Location: ../view/dashboard.php");
             exit();
         } else {
             throw new Exception("Item not found.");

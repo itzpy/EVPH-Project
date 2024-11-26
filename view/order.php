@@ -7,6 +7,8 @@
     <title>Order Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="../assets/css/order.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
     <style>
 
     </style>
@@ -14,7 +16,7 @@
 
 <body>
     <?php include "../view/menu.php"; ?>
-    <form action="../functions/place_order.php" method="post" class="animate__animated animate__fadeIn">
+    <form action="../functions/place_order.php" method="post" data-aos="fade-right" data-aos-duration="2000">
         <header>
             <h1>Order Form</h1>
             <p>Place your orders and check out the amazing food on our menu today</p>

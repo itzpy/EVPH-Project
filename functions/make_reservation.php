@@ -11,8 +11,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'customer') {
 $user_id = $_SESSION['user_id'];
 
 // Fetch date and time from the form
-$date = $_POST['date']; // Input name for the date field
-$time = $_POST['time']; // Input name for the time field
+$date = $_POST['date']; 
+$time = $_POST['time']; 
 
 // Merge date and time into a single datetime value
 $reservation_time = $date . ' ' . $time;
