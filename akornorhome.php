@@ -49,8 +49,7 @@
         <div class="heading" data-aos="fade-right" data-aos-duration="2000">
           <h1>Welcome to Akornor Hub</h1>
           <p>
-            Akornor has an amazing variety of dishes and has an incredible pool
-            table that houses<br />
+            Akornor has an amazing variety of dishes that consists of both local and continental choices.<br>
             It houses the Ashesi Pool Association which has competitive games every
             friday night and you can always play a round with your friends
           </p>
