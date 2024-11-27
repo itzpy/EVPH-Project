@@ -106,7 +106,7 @@ CREATE TABLE `orders` (
   `user_id` int(11) NOT NULL,
   `total_price` decimal(10,2) NOT NULL,
   `status` enum('pending','completed','cancelled') DEFAULT 'pending',
-  `payment_method` enum('card','cash','online') DEFAULT NULL,
+  `payment_method` enum('card','cash','meal plan','mobile money') DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

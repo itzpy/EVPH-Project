@@ -20,6 +20,49 @@
         <div class="main-content">
             <h1>Welcome, Admin!</h1>
 
+            <!-- Analytics Section -->
+            <section class="analytics-section" data-aos="fade-up" data-aos-duration="2000">
+                <h2>Dashboard Analytics</h2>
+                <div class="analytics-grid">
+                    <div class="analytics-item">
+                        <div class="icon"><ion-icon name="people-outline"></ion-icon></div>
+                        <div class="info">
+                            <h3>Total Users</h3>
+                            <p><?php echo $analytics['total_users']; ?></p>
+                        </div>
+                    </div>
+                    <div class="analytics-item">
+                        <div class="icon"><ion-icon name="restaurant-outline"></ion-icon></div>
+                        <div class="info">
+                            <h3>Total Menu Items</h3>
+                            <p><?php echo $analytics['total_menu_items']; ?></p>
+                        </div>
+                    </div>
+                    <div class="analytics-item">
+                        <div class="icon"><ion-icon name="cart-outline"></ion-icon></div>
+                        <div class="info">
+                            <h3>Total Orders</h3>
+                            <p><?php echo $analytics['total_orders']; ?></p>
+                        </div>
+                    </div>
+                    <div class="analytics-item">
+                        <div class="icon"><ion-icon name="calendar-outline"></ion-icon></div>
+                        <div class="info">
+                            <h3>Total Reservations</h3>
+                            <p><?php echo $analytics['total_reservations']; ?></p>
+                        </div>
+                    </div>
+                    <div class="analytics-item">
+                        <div class="icon"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></div>
+                        <div class="info">
+                            <h3>Total Reviews</h3>
+                            <p><?php echo $analytics['total_reviews']; ?></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <!-- User Section -->
             <section class="user-section" data-aos="fade-right" data-aos-duration="2000">
                 <div class="card">

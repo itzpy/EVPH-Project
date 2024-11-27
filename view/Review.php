@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta name="Author" content="EVPH">
     <title>Review Page</title>
     <link rel="stylesheet" href="../assets/css/akornor.css">
@@ -16,11 +18,12 @@
 <body>
     <p style="text-align:center; 
     padding: 20px;font-size: 1.2em;color: #555;
-    line-height: 1.6;max-width: 800px;margin: 0 auto;">Thank you for ordering from Akornor! We are always looking for ways to improve<br>
+    line-height: 1.6;max-width: 800px;margin: 0 auto;">Thank you for ordering from Akornor! We are always looking for
+        ways to improve<br>
         your customer experience and we want to make sure that we collect all of your <br>
         feedback to improve our services.</p>
 
-    <div class="form-container"  data-aos="fade-right" data-aos-duration="2000">
+    <div class="form-container" data-aos="fade-right" data-aos-duration="2000">
         <h2 class="form-title">Feedback</h2>
         <form id="FeedbackForm" class="form" action="../functions/submit_feedback.php" method="post">
             <label for="category" class="form-label">Review</label>
