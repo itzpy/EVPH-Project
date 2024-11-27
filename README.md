@@ -56,6 +56,7 @@ Architecture Overview:
 The design also follows responsive web design principles to cater to both desktop and mobile users.
 5. Demo:
 The demo will showcase the Menu Page, where users can view the daily menu items and prices, and the Order Page, where they can place an order. The demo will illustrate the core functionality that helps Akornor handle online orders, demonstrating the website's value to students and staff.
+
 6.Instructions Setup the Server
 Import the sql file located in the db folder and link the database in the db file in the same folder to connect.
 
