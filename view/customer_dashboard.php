@@ -40,6 +40,23 @@
           <h3>Total Reviews</h3>
           <p><?php echo $analytics['total_reviews']; ?></p>
         </div>
+<<<<<<< HEAD
+=======
+      </section>
+
+      <!-- Provide Feedback Section -->
+      <section class="feedback-section" data-aos="fade-right" data-aos-duration="2000">
+        <div class="card">
+          <h2>Help Us Improve <ion-icon name="chatbubble-ellipses-outline"
+              class="animate__animated animate__bounce"></ion-icon></h2>
+          <p style="margin-bottom: 1.5em">We value your opinion and would love to hear from you. Your feedback will help
+            us improve our customer experience.</p>
+          <a href="../view/Review.php" class="button-link"
+            style="display: block; width: fit-content; margin: 0 auto">Take Our
+            Survey</a>
+        </div>
+      </section>
+>>>>>>> 8eec8478beb4fa61eefee6be19bca1ab7058fa46
     </div>
     </section>
 
