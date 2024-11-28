@@ -72,7 +72,9 @@
 
     <section class="aboutus" id="aboutus">
       <div class="container">
-        <img src="../EVPH-Project/assets/images/aboutus.png" data-aos="zoom-in" data-aos-duration="1000" />
+        <div class="image">
+          <img src="../EVPH-Project/assets/images/aboutus.png" data-aos="zoom-in" data-aos-duration="2000" />
+        </div>
         <div class="aboutus-content">
           <h1 data-aos="fade-left" data-aos-duration="1000">About us</h1>
           <p data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
@@ -92,8 +94,8 @@
           Why Choose Akornor Hub? </h1>
       </div>
       <div class="foods">
-        <div class="card" data-aos="fade-up" data-aos-duration="1000">
-          <img src=".. /EVPH-Project/assets/images/AkornorWorkers.png" alt="Interior of Akornor Hub" />
+        <div class="card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <img src="../EVPH-Project/assets/images/Waakye.jpg" alt="Akornor Hub Pool Table" />
           <div class="description">
             <h1>A Variety of Cuisine:</h1>
             <p>
