@@ -1,8 +1,8 @@
 <?php
 // $servername = "localhost";
-// $username = "edem.anagbah";
-// $password = "Ed21emk@2023";
-// $dbname = "webtech_fall2024_edem_anagbah";
+// $username = "root";
+// $password = "";
+// $dbname = "restaurant_db";
 
 $servername = "localhost";
 $username = "papa.badu";
