@@ -24,7 +24,7 @@
         <div class="nav-menu" id="navMenu">
 
           <ul>
-            <li><a href="view/menu.php" class="link active">Menu</a></li>
+            <li><a href="../EVPH-Project/view/menu.php" class="link active">Menu</a></li>
             <li><a href="#aboutus" class="link">About Us</a></li>
             <li><a href="#contactus" class="link">Contact Us</a></li>
           </ul>
@@ -61,8 +61,8 @@
           <p>Click on the preview to get a taste of our webApp services</p>
 
           <div class="button-container">
-            <a href="../view/akornorsignup.php"><button class="btn" data-aos="fade-left" data-aos-duration="2000"
-                data-aos-delay="00" data-aos-margin="">
+            <a href="../EVPH-Project/view/akornorsignup.php"><button class="btn" data-aos="fade-left"
+                data-aos-duration="2000" data-aos-delay="00" data-aos-margin="">
                 Get Started
               </button></a>
           </div>
@@ -72,7 +72,7 @@
 
     <section class="aboutus" id="aboutus">
       <div class="container">
-        <img src="../assets/images/aboutus.png" data-aos="zoom-in" data-aos-duration="1000" />
+        <img src="../EVPH-Project/assets/images/aboutus.png" data-aos="zoom-in" data-aos-duration="1000" />
         <div class="aboutus-content">
           <h1 data-aos="fade-left" data-aos-duration="1000">About us</h1>
           <p data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
@@ -93,7 +93,7 @@
       </div>
       <div class="foods">
         <div class="card" data-aos="fade-up" data-aos-duration="1000">
-          <img src=".. /assets/images/AkornorWorkers.png" alt="Interior of Akornor Hub" />
+          <img src=".. /EVPH-Project/assets/images/AkornorWorkers.png" alt="Interior of Akornor Hub" />
           <div class="description">
             <h1>A Variety of Cuisine:</h1>
             <p>
@@ -105,7 +105,7 @@
           </div>
         </div>
         <div class="card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-          <img src="../assets/images/PoolTable.png" alt="Akornor Hub Pool Table" />
+          <img src="../EVPH-Project/assets/images/PoolTable.png" alt="Akornor Hub Pool Table" />
           <div class="description">
             <h1>The Ultimate Hangout Spot:</h1>
             <p>
@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
-          <img src="../assets/images/RestaurantSide.png" alt="" />
+          <img src="../EVPH-Project/assets/images/RestaurantSide.png" alt="" />
           <div class="description">
             <h1>The Ultimate Hangout Spot:</h1>
             <p>
