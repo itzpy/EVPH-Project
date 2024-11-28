@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="../EVPH-Project/assets/css/style.css" />
   <link rel="stylesheet" href="../EVPH-Project/assets/css/style1.css" />
-  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../EVPH-Project/assets/images/favicon.ico" type="image/x-icon">
 
 
   <title>Akornor Hub | Home</title>
