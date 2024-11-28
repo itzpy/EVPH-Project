@@ -88,10 +88,10 @@ if ($role === 'admin') {
     $feedbackResult = $stmt->get_result();
 
     $analytics = [
-        'available_menu_items'=> $db-> query('SELECT COUNT(*) AS count FROM menu_items WHERE availability = 1')->fetch_assoc()['count'],
-        'total_orders' => $db->query("SELECT COUNT(*) AS count FROM orders WHERE user_id = $user_id")->fetch_assoc()['count'],
-        'total_reservations' => $db->query("SELECT COUNT(*) AS count FROM reservations WHERE user_id = $user_id")->fetch_assoc()['count'],
-        'total_reviews' => $db->query("SELECT COUNT(*) AS count FROM feedback WHERE user_id = $user_id")->fetch_assoc()['count'],
+        'available_menu_items' => $conn->query('SELECT COUNT(*) AS count FROM menu_items WHERE availability = 1')->fetch_assoc()['count'],
+        'total_orders' => $conn->query("SELECT COUNT(*) AS count FROM orders WHERE user_id = $user_id")->fetch_assoc()['count'],
+        'total_reservations' => $conn->query("SELECT COUNT(*) AS count FROM reservations WHERE user_id = $user_id")->fetch_assoc()['count'],
+        'total_reviews' => $conn->query("SELECT COUNT(*) AS count FROM feedback WHERE user_id = $user_id")->fetch_assoc()['count'],
     ];
 
     // Include customer dashboard template

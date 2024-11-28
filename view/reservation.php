@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../assets/css/reservation.css" />
   <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
-
   <title>Akornor Reservation</title>
 </head>
 
@@ -16,6 +14,11 @@
       <h1>Akornor Reservation</h1>
       <p>Reserve a table for your next meal</p>
     </header>
+
+    <div class="back-button">
+      <a href="../view/dashboard.php" style="display: flex; align-items: center; font-size: 1.2em; color: #fff; text-decoration: none; background-color: #722F37; padding: 10px 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"><ion-icon name="arrow-back-outline"></ion-icon> Back</a>
+    </div>
+
     <form action="../functions/make_reservation.php" method="post" data-aos="fade-right" data-aos-duration="2000">
       <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
 
