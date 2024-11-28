@@ -72,9 +72,7 @@
 
     <section class="aboutus" id="aboutus">
       <div class="container">
-        <div class="image">
-          <img src="../EVPH-Project/assets/images/aboutus.png" data-aos="zoom-in" data-aos-duration="2000" />
-        </div>
+        <img src="../EVPH-Project/assets/images/aboutus.png" data-aos="zoom-in-" data-aos-duration="2000" />
         <div class="aboutus-content">
           <h1 data-aos="fade-left" data-aos-duration="1000">About us</h1>
           <p data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
@@ -121,11 +119,12 @@
         <div class="card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
           <img src="../EVPH-Project/assets/images/RestaurantSide.png" alt="" />
           <div class="description">
-            <h1>The Ultimate Hangout Spot:</h1>
+            <h1>Unmatched Convenience:</h1>
             <p>
               <li>
-                Enjoy a friendly game
-                of pool or simply relax in our welcoming atmosphere.
+                Located right on campus,
+                we're here to provide students, faculty, and visitors with
+                delicious meals and a place to recharge.
               </li>
             </p>
           </div>
