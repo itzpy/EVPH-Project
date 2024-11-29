@@ -1,12 +1,8 @@
-https://www.canva.com/design/DAGTqn_zT4k/m_qjnrnzXJ7QeIWbZrm6QA/edit?utm_content=DAGTqn_zT4k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
-This is a link to our First Presentation Slides 
-
 http://169.239.251.102:3341/~papa.badu/EVPH-Project/akornorhome.php
 This a link to our website 
 
 http://169.239.251.102:3341/phpmyadmin/index.php?route=/&route=%2F&db=webtech_fall2024_papa_badu
-This is the link to our Database 
+This is the link to our live Database 
 
 https://www.canva.com/design/DAGTqn_zT4k/m_qjnrnzXJ7QeIWbZrm6QA/edit?utm_content=DAGTqn_zT4k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 This is the link to our slides
@@ -54,9 +50,7 @@ Architecture Overview:
 * JavaScript/jQuery: Basic form validation and dynamic updates to the menu page rely on jQuery.
 * No frameworks: No external CSS frameworks (e.g., Bootstrap) are being used to keep the code lightweight and custom.
 The design also follows responsive web design principles to cater to both desktop and mobile users.
-5. Demo:
-The demo will showcase the Menu Page, where users can view the daily menu items and prices, and the Order Page, where they can place an order. The demo will illustrate the core functionality that helps Akornor handle online orders, demonstrating the website's value to students and staff.
+5. Instructions Setup the Server
+Import the sql file located in the db folder and link the database in the db file in the same folder to connect. From there any requests submitted by the user i.e. Admin or Customer will be visible in the corresponding tables. You can also change user roles directly in the database.
 
-6.Instructions Setup the Server
-Import the sql file located in the db folder and link the database in the db file in the same folder to connect.
 
