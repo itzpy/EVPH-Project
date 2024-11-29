@@ -32,7 +32,7 @@
       </a>
     </li>
     <li>
-      <a href="../view/review.php">
+      <a href="../view/dashboard.php">
         <span class="icon"><ion-icon name="chatbox-ellipses-outline"></ion-icon></span>
         <span class="title">Leave a Review</span>
       </a>

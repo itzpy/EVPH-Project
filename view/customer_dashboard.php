@@ -19,6 +19,30 @@
     <div class="main-content">
       <h1>Welcome! <ion-icon name="happy-outline"></ion-icon></h1>
 
+      <!-- Analytics Section -->
+      <section class="analytics-section" data-aos="fade-up" data-aos-duration="2000">
+        <h2>Dashboard Analytics</h2>
+        <div class="analytics-grid">
+          <div class="analytics-item">
+            <h3>Available Menu Items</h3>
+            <p><?php echo $analytics['available_menu_items']; ?></p>
+          </div>
+          <div class="analytics-item">
+            <h3>Total Orders</h3>
+            <p><?php echo $analytics['total_orders']; ?></p>
+          </div>
+          <div class="analytics-item">
+            <h3>Total Reservations</h3>
+            <p><?php echo $analytics['total_reservations']; ?></p>
+          </div>
+          <div class="analytics-item">
+            <h3>Total Reviews</h3>
+            <p><?php echo $analytics['total_reviews']; ?></p>
+          </div>
+        </div>
+      </section>
+
+
       <!-- Menu Section -->
       <section class="menu-section" data-aos="fade-right" data-aos-duration="2000">
         <div class="card">
@@ -121,7 +145,8 @@
       <section class="place-reservation-section" data-aos="fade-right" data-aos-duration="2000">
         <div class="card">
           <h2>Make a Reservation <ion-icon name="restaurant-outline"
-              class="animate__animated animate__bounce"></ion-icon></h2>
+              class="animate__animated animate__bounce"></ion-icon>
+          </h2>
           <p style="margin-bottom: 1.5em">Plan ahead and secure a table for your next visit. We can't wait to welcome
             you back!</p>
           <a href="../view/reservation.php" class="button-link"
@@ -137,8 +162,9 @@
               class="animate__animated animate__bounce"></ion-icon></h2>
           <p style="margin-bottom: 1.5em">We value your opinion and would love to hear from you. Your feedback will help
             us improve our customer experience.</p>
-          <a href="../view/review.php" class="button-link"
-            style="display: block; width: fit-content; margin: 0 auto">Take Our
+          <a href="../view/Review.php" class="button-link"
+            style="display: block; width: fit-content; margin: 0 auto">Take
+            Our
             Survey</a>
         </div>
       </section>

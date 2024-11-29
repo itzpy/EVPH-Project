@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/login.css" />
-  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon" />
   <title>Login | Akornor Hub</title>
   <style>
     .error-message {
@@ -83,8 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="nav-menu" id="navMenu">
         <ul>
           <li><a href="../akornorhome.php" class="link active">Home</a></li>
-          <li><a href="../akornorhome.php" class="link">About Us</a></li>
-          <li><a href="" class="link">Contact Us</a></li>
+          <li><a href="../akornorhome.php#aboutus" class="link">About Us</a></li>
+          <li><a href="../akornorhome.php#contactus" class="link">Contact Us</a></li>
         </ul>
       </div>
       <div class="nav-button">

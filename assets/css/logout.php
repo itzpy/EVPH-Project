@@ -11,3 +11,4 @@ session_destroy();
 // Redirect to login page
 header("Location: ../view/akornorlogin.php");
 exit();
+?>

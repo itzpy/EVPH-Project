@@ -267,6 +267,8 @@ button, .button-link {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: auto;
+    margin-bottom: 10px;
 }
 
 button:hover, .button-link:hover {

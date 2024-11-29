@@ -1,0 +1,140 @@
+ /* General Styles */
+ body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #f3f3f3;
+    background-image: url("../assets/images/background.jpg"); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Overlay for the body */
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Increased transparency */
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  /* Header Section */
+  /* header {
+    background-color: none; 
+    color: solid #ffa500; 
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  } */
+
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  header p {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+  }
+
+  /* Container Section */
+  .container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(41, 41, 41, 0.8); /* Slightly more transparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Section Titles */
+  h2 {
+    color: #ffa500;
+    border-bottom: 2px solid #ffa500;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+
+  /* Text Styling */
+  p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+  ul li strong {
+    color: #ffa500;
+  }
+
+  /* Gallery Section */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Footer Section */
+  footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f3f3f3;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+  }
+
+  footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  /* Buttons (if needed later) */
+  .btn {
+    display: inline-block;
+    background-color: #ffa500;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #e59400;
+    color: #fff;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

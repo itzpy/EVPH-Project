@@ -16,7 +16,7 @@
 
 <body>
     <?php include "../view/menu.php"; ?>
-    <form action="../functions/place_order.php" method="post" data-aos="fade-right" data-aos-duration="2000">
+    <form action="../functions/place_order.php" method="post">
         <header>
             <h1>Order Form</h1>
             <p>Place your orders and check out the amazing food on our menu today</p>

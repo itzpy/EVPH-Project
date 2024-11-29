@@ -48,6 +48,17 @@ if ($role === 'admin') {
         die("Error fetching feedback: " . $conn->error);
     }
 
+
+    // Fetch analytics data from the database
+    $analytics = [
+        'total_users' => $conn->query("SELECT COUNT(*) AS count FROM user")->fetch_assoc()['count'],
+        'total_menu_items' => $conn->query("SELECT COUNT(*) AS count FROM menu_items")->fetch_assoc()['count'],
+        'total_orders' => $conn->query('SELECT COUNT(*) AS count FROM orders')->fetch_assoc()['count'],
+        'total_reviews' => $conn->query("SELECT COUNT(*) AS count FROM feedback")->fetch_assoc()['count'],
+        'total_reservations' => $conn->query("SELECT COUNT(*) AS count FROM reservations")->fetch_assoc()['count'],
+    ];
+
+
     // Include admin dashboard template
     include "./admin/admin_dashboard.php";
 
@@ -75,6 +86,13 @@ if ($role === 'admin') {
     $stmt->bind_param('i', $user_id);
     $stmt->execute();
     $feedbackResult = $stmt->get_result();
+
+    $analytics = [
+        'available_menu_items' => $conn->query('SELECT COUNT(*) AS count FROM menu_items WHERE availability = 1')->fetch_assoc()['count'],
+        'total_orders' => $conn->query("SELECT COUNT(*) AS count FROM orders WHERE user_id = $user_id")->fetch_assoc()['count'],
+        'total_reservations' => $conn->query("SELECT COUNT(*) AS count FROM reservations WHERE user_id = $user_id")->fetch_assoc()['count'],
+        'total_reviews' => $conn->query("SELECT COUNT(*) AS count FROM feedback WHERE user_id = $user_id")->fetch_assoc()['count'],
+    ];
 
     // Include customer dashboard template
     include "../view/customer_dashboard.php";
