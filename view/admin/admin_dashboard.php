@@ -43,7 +43,7 @@
                                     <td><?= htmlspecialchars($row['role']) ?></td>
                                     <td>
                                         <button onclick="confirmDeleteUser(<?= $row['user_id'] ?>)">Delete</button>
-                                        <button onclick="confirmUpdateUser(<?= $row['user_id'] ?>)">Update</button>
+                                        <button onclick="showUpdateUserModal(<?= $row['user_id'] ?>)">Update</button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -51,6 +51,40 @@
                     </table>
                 </div>
             </section>
+
+            <!-- Modal for Updating a New User -->
+             <div id="addUserModal" class="modal" >
+                <div class="modal-content">
+                    <span class="close" onclick="closeAddUserModal()">&times;</span>
+                    <h3>Update User</h3>
+                    <form action="../actions/update.php?action=user" method="post">
+                        <header>
+                            Update User
+                        </header>
+
+                        <label for="fname">First
+                            Name:</label>
+                        <input type="text" id="fname" name="fname" required>
+
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="role" class="form-label">Role:</label>
+                        <select id="ReviewType" name="Review Type" required class="form-input">
+                            <option value="admin">Admin</option>
+                            <option value="customer">Customer</option>
+                        </select>
+
+                        <input type="hidden" id="user_id" name="user_id"
+                            value="<?php echo htmlspecialchars($_GET['user_id'], ENT_QUOTES, 'UTF-8'); ?>">
+
+                        <button type="submit">Update User</button>
+                    </form>
+                </div>
+             </div>
 
             <!-- Menu Section -->
             <section class="menu-section" data-aos="fade-right" data-aos-duration="2000">
