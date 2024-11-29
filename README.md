@@ -50,7 +50,7 @@ Architecture Overview:
 * JavaScript/jQuery: Basic form validation and dynamic updates to the menu page rely on jQuery.
 * No frameworks: No external CSS frameworks (e.g., Bootstrap) are being used to keep the code lightweight and custom.
 The design also follows responsive web design principles to cater to both desktop and mobile users.
-5. Instructions Setup the Server
+5. Instructions to Setup the Server:
 Import the sql file located in the db folder and link the database in the db file in the same folder to connect. From there any requests submitted by the user i.e. Admin or Customer will be visible in the corresponding tables. You can also change user roles directly in the database.
 
 
